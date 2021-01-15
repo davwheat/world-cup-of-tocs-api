@@ -4,7 +4,7 @@
       "team1": "vt",
       "team2": "em",
       "startDate": "2021-01-15",
-      "tweetId": null
+      "tweetId": "1350003312934924289"
     },
     "1": {
       "team1": "me",
@@ -98,29 +98,77 @@
     }
   },
   "groupStages": {
-    "0": { "startDate": 0, "tweetId": null },
-    "1": { "startDate": 0, "tweetId": null },
-    "2": { "startDate": 0, "tweetId": null },
-    "3": { "startDate": 0, "tweetId": null },
-    "4": { "startDate": 0, "tweetId": null },
-    "5": { "startDate": 0, "tweetId": null },
-    "6": { "startDate": 0, "tweetId": null },
-    "7": { "startDate": 0, "tweetId": null }
+    "0": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "1": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "2": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "3": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "4": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "5": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "6": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "7": {
+      "startDate": 0,
+      "tweetId": null
+    }
   },
   "quarterFinal": {
-    "0": { "startDate": 0, "tweetId": null },
-    "1": { "startDate": 0, "tweetId": null },
-    "2": { "startDate": 0, "tweetId": null },
-    "3": { "startDate": 0, "tweetId": null }
+    "0": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "1": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "2": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "3": {
+      "startDate": 0,
+      "tweetId": null
+    }
   },
   "semiFinal": {
-    "0": { "startDate": 0, "tweetId": null },
-    "1": { "startDate": 0, "tweetId": null }
+    "0": {
+      "startDate": 0,
+      "tweetId": null
+    },
+    "1": {
+      "startDate": 0,
+      "tweetId": null
+    }
   },
   "final": {
-    "0": { "startDate": 0, "tweetId": null }
+    "0": {
+      "startDate": 0,
+      "tweetId": null
+    }
   },
   "runnerUp": {
-    "0": { "startDate": 0, "tweetId": null }
+    "0": {
+      "startDate": 0,
+      "tweetId": null
+    }
   }
 }

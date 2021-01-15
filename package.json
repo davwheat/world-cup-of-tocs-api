@@ -1,9 +1,9 @@
 {
-  "name": "world-cup-of-tube-lines-api",
+  "name": "world-cup-of-tocs-api",
   "version": "0.1.0",
-  "description": "A simple express API for the World Cup Of Tube Lines, run by Geoff Marshall",
+  "description": "A simple express API for the World Cup of Train Operators, run by Geoff Marshall",
   "main": "index.js",
-  "repository": "https://github.com/davwheat/world-cup-of-tube-lines-api.git",
+  "repository": "https://github.com/davwheat/world-cup-of-tocs-api.git",
   "engines": {
     "node": ">=12.x"
   },
@@ -23,19 +23,20 @@
     "stop": "pm2 stop ecosystem.config.js",
     "status": "pm2 status",
     "monitor": "pm2 monit",
-    "logs": "pm2 logs \"WCOTL API\""
+    "logs": "pm2 logs \"WCOTOCs API\""
   },
   "dependencies": {
     "chalk": "^4.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "fuse.js": "^6.4.6",
     "node-fetch": "^2.6.1",
     "shrink-ray-current": "^4.1.2"
   },
   "devDependencies": {
-    "pm2": "^4.5.0",
-    "prettier": "^2.1.2",
-    "eslint": "^7.12.1"
+    "eslint": "^7.17.0",
+    "pm2": "^4.5.1",
+    "prettier": "^2.2.1"
   },
   "optionalDependencies": {
     "node-zopfli-es": "~1.0.7"

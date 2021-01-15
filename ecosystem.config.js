@@ -1,12 +1,12 @@
 module.exports = {
   apps: [
     {
-      name: 'WCOTL API',
+      name: 'WCOTOCs API',
       script: 'index.js',
       watch: true,
       watch_delay: 1000,
-      ignore_watch: ['node_modules', 'data'],
+      ignore_watch: ['node_modules', 'data', './cup.json'],
       args: ['--color'],
     },
   ],
-};
+}

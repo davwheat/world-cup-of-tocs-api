@@ -16,7 +16,12 @@ const SinglePoll = require('./models/SinglePoll')
 const VotesInfo = require('./models/VotesInfo')
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
+  const allowedOrigins = ['http://localhost:8000', 'http://localhost:9000', 'https://toccup.davwheat.dev']
+  const origin = req.headers.origin
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin)
+  }
+
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   res.header('Access-Control-Allow-Methods', 'GET')
   res.header('Access-Control-Max-Age', 86400)

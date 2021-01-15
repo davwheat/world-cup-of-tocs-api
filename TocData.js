@@ -111,7 +111,7 @@ function GetTocCodeFromName(name) {
 
   const fuse = new Fuse(_codeNameArrayMap, fuseOptions)
 
-  return fuse.search(name)[0].item.name
+  return fuse.search(name)[0].item.code
 }
 
 module.exports = { GetTocName, GetTocColor, GetTocCodeFromName }

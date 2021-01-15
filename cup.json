@@ -1,5 +1,5 @@
 {
-  "initialKnockout": {
+  "knockout": {
     "0": {
       "team1": "vt",
       "team2": "em",
@@ -10,7 +10,7 @@
       "team1": "me",
       "team2": "aw",
       "startDate": "2021-01-16",
-      "tweetId": null
+      "tweetId": "1349943574037749760"
     },
     "2": {
       "team1": "ln",

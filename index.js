@@ -41,8 +41,8 @@ app.use(shrinkRay({ zlib: { level: 7 }, brotli: { quality: 5 } }))
 async function GetTweetIDs() {
   //   'https://api.twitter.com/2/tweets/search/recent?query=from:geofftech AND #WorldCupOfTubeLines&expansions=attachments.poll_ids',
   const data = await fetch(
-    // `https://api.twitter.com/2/tweets/search/recent?query=from:geofftech %23WorldCupOfTrainOperators -is:retweet -is:quote&max_results=100&expansions=attachments.poll_ids`,
-    `https://api.twitter.com/2/tweets/search/recent?query=from:davwheat_ %23WorldCupOfTrainOperators -is:retweet -is:quote&max_results=100&expansions=attachments.poll_ids`,
+    `https://api.twitter.com/2/tweets/search/recent?query=from:geofftech %23WorldCupOfTrainOperators -is:retweet -is:quote&max_results=100&expansions=attachments.poll_ids`,
+    // `https://api.twitter.com/2/tweets/search/recent?query=from:davwheat_ %23WorldCupOfTrainOperators -is:retweet -is:quote&max_results=100&expansions=attachments.poll_ids`,
     {
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -52,6 +52,11 @@ async function GetTweetIDs() {
 
   const json = await data.json()
   // console.log(JSON.stringify(json, null, 2));
+
+  if (!json.data) {
+    Log('No tweets found.', Log.SEVERITY.WARNING)
+    return
+  }
 
   const pollTweets = json.data.filter(tweet => tweet.attachments && tweet.attachments.poll_ids && tweet.attachments.poll_ids[0])
 
@@ -66,7 +71,7 @@ async function GetTweetIDs() {
 
 async function UpdatePollData() {
   const knownTweets = require('./cup.json')
-  const firstToLastKeysOrder = ['initialKnockout', 'groupStages', 'quarterFinal', 'semiFinal', 'runnerUp', 'final']
+  const firstToLastKeysOrder = ['knockout', 'groupStages', 'quarterFinal', 'semiFinal', 'runnerUp', 'final']
 
   const newKnownTweets = { ...knownTweets }
   const justIds = []
@@ -117,7 +122,7 @@ async function UpdatePollData() {
   let singlePollArray = CreateSinglePollArrayFromTweetData(data)
 
   let fullDataStructure = {
-    initialKnockout: {},
+    knockout: {},
     groupStages: {},
     quarterFinal: {},
     semiFinal: {},
@@ -127,7 +132,14 @@ async function UpdatePollData() {
 
   const cupData = require('./cup.json')
 
+  if (!fsSync.existsSync('./data/data.json')) {
+    await fs.writeFile('./data/data.json', '{}')
+  }
+
+  const lastData = require('./data/data.json')
+
   const finaliseDataStructure = stage => k => {
+    /** @type {SinglePoll} */
     const game = cupData[stage][k]
 
     if (!game.tweetId) {
@@ -140,11 +152,55 @@ async function UpdatePollData() {
         votingStatus: 'UPCOMING',
       })
     } else {
-      fullDataStructure[stage][k] = singlePollArray.find(p => p.twitterInfo.tweetId === game.tweetId)
+      let thisPoll = singlePollArray.find(p => p.twitterInfo.tweetId === game.tweetId)
+
+      /** @type {SinglePoll} */
+      const lastDataGame = lastData[stage][k]
+
+      if (thisPoll.votingStatus === 'IN_PROGRESS') {
+        if (lastDataGame.votesInfo[0].votes !== thisPoll.votesInfo[0].votes || lastDataGame.votesInfo[1].votes !== thisPoll.votesInfo[1].votes) {
+          // Updates have been made to the votes on the API, so we should add an item to the history
+          lastDataGame.votesInfo.forEach(
+            /**
+             * @param {VotesInfo} votes
+             * @param {0|1} i
+             */
+            (votes, i) => {
+              if (Array.isArray(votes.votingHistory)) {
+                thisPoll.votesInfo[i].votingHistory = [...votes.votingHistory, { timestamp: now, votes: thisPoll.votesInfo[i].votes }]
+              } else {
+                thisPoll.votesInfo[i].votingHistory = [{ timestamp: now, votes: thisPoll.votesInfo[i].votes }]
+              }
+            }
+          )
+        } else {
+          lastDataGame.votesInfo.forEach(
+            /**
+             * @param {VotesInfo} votes
+             * @param {0|1} i
+             */
+            (votes, i) => {
+              thisPoll.votesInfo[i].votingHistory = votes.votingHistory
+            }
+          )
+        }
+      } else {
+        lastDataGame.votesInfo.forEach(
+          /**
+           * @param {VotesInfo} votes
+           * @param {0|1} i
+           */
+          (votes, i) => {
+            thisPoll.votesInfo[i].votingHistory = votes.votingHistory
+          }
+        )
+      }
+
+      fullDataStructure[stage][k] = thisPoll
     }
   }
 
-  Object.keys(cupData.initialKnockout).forEach(finaliseDataStructure('initialKnockout'))
+  Object.keys(cupData.knockout).forEach(finaliseDataStructure('knockout'))
   Object.keys(cupData.groupStages).forEach(finaliseDataStructure('groupStages'))
   Object.keys(cupData.quarterFinal).forEach(finaliseDataStructure('quarterFinal'))
   Object.keys(cupData.semiFinal).forEach(finaliseDataStructure('semiFinal'))
@@ -153,18 +209,14 @@ async function UpdatePollData() {
 
   console.log(JSON.stringify(fullDataStructure, null, 2))
 
-  if (!fsSync.existsSync('./data/data.json')) {
-    await fs.writeFile('./data/data.json', '{}')
-  }
-
   // update latest copy of data
   // historicalData.latest_all = allData
   // Log(JSON.stringify(historicalData.latest_all));
 
   // Log(JSON.stringify(historicalData));
 
-  await fs.writeFile('./data/data.json', JSON.stringify(historicalData, null, '\t'))
-  await fs.writeFile('./data/data.min.json', JSON.stringify(historicalData))
+  await fs.writeFile('./data/data.json', JSON.stringify(fullDataStructure, null, 2))
+  await fs.writeFile('./data/data.min.json', JSON.stringify(fullDataStructure))
 }
 
 /**
@@ -194,16 +246,10 @@ async function GetDataFromTwitterApi(...tweetIds) {
   }
 }
 
-app.get(`/getpolls`, async (req, res) => {
+app.get(`/v1/all_polls`, async (req, res) => {
   const data = require('./data/data.json')
 
-  return SendResponse.JSON(res, data.latest_all)
-})
-
-app.get(`/fullhistory`, async (req, res) => {
-  const allData = require('./data/data.json')
-
-  return SendResponse.JSON(res, allData)
+  return SendResponse.JSON(res, data)
 })
 
 Log(`Starting API listener...`, Log.SEVERITY.DEBUG)

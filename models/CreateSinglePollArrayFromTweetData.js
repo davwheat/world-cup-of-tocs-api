@@ -1,4 +1,4 @@
-// const { GetTocCodeFromName } = require('../TocData')
+const { GetTocCodeFromName } = require('../TocData')
 const SinglePoll = require('./SinglePoll')
 const TwitterInfo = require('./TwitterInfo')
 const VotesInfo = require('./VotesInfo')
@@ -33,10 +33,10 @@ module.exports = function CreateSinglePollArrayFromTweetData(tweetData) {
       durationMinutes: poll.duration_minutes,
     })
 
-    // const team1Code = GetTocCodeFromName(poll.options[0].label)
-    // const team2Code = GetTocCodeFromName(poll.options[1].label)
-    const team1Code = poll.options[0].label
-    const team2Code = poll.options[1].label
+    const team1Code = GetTocCodeFromName(poll.options[0].label)
+    const team2Code = GetTocCodeFromName(poll.options[1].label)
+    // const team1Code = poll.options[0].label
+    // const team2Code = poll.options[1].label
 
     const votesInfoArray = [
       new VotesInfo({
@@ -55,7 +55,7 @@ module.exports = function CreateSinglePollArrayFromTweetData(tweetData) {
       scheduledStartDay: cd ? new Date(`${cd.startDate}Z`).getTime() : 0,
       votesInfo: votesInfoArray,
       twitterInfo: twitterInfo,
-      votingStatus: poll.voting_status === 'closed' ? 'DONE' : 'IN_RPOGRESS',
+      votingStatus: poll.voting_status === 'closed' ? 'DONE' : 'IN_PROGRESS',
     })
 
     array.push(singlePoll)

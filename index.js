@@ -214,7 +214,7 @@ async function UpdatePollData() {
   Object.keys(cupData.runnerUp).forEach(finaliseDataStructure('runnerUp'))
   Object.keys(cupData.final).forEach(finaliseDataStructure('final'))
 
-  console.log(JSON.stringify(fullDataStructure, null, 2))
+  // console.log(JSON.stringify(fullDataStructure, null, 2))
 
   // update latest copy of data
   // historicalData.latest_all = allData

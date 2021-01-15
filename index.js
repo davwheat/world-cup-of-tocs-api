@@ -9,10 +9,12 @@ const Log = require('./logger')
 const TOKEN = process.env.TWITTER_BEARER_TOKEN
 const SendResponse = require('./helpers/SendResponse')
 const fs = require('fs').promises
-const fsSync = require('fs')
 const CreateSinglePollArrayFromTweetData = require('./models/CreateSinglePollArrayFromTweetData')
 const SinglePoll = require('./models/SinglePoll')
 const VotesInfo = require('./models/VotesInfo')
+const morgan = require('morgan')
+
+app.use(morgan('combined'))
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -33,7 +35,7 @@ app.use(
 )
 
 // Add gzip/brotli compression
-app.use(shrinkRay({ zlib: { level: 7 }, brotli: { quality: 5 } }))
+app.use(shrinkRay({ brotli: { quality: 7 } }))
 
 /**
  * @returns {string[]} Tweet IDs identified by the algorithm to be a poll from Geoff!
@@ -139,9 +141,9 @@ async function UpdatePollData() {
 
   const cupData = require('./cup.json')
 
-  if (!fsSync.existsSync('./data/data.json')) {
-    await fs.writeFile('./data/data.json', '{}')
-  }
+  // if (!fsSync.existsSync('./data/data.json')) {
+  //   await fs.writeFile('./data/data.json', '{}')
+  // }
 
   const lastData = require('./data/data.json')
 

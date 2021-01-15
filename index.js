@@ -14,13 +14,20 @@ const CreateSinglePollArrayFromTweetData = require('./models/CreateSinglePollArr
 const SinglePoll = require('./models/SinglePoll')
 const VotesInfo = require('./models/VotesInfo')
 
-app.use((req, res, next) => {
-  const allowedOrigins = ['http://localhost:8000', 'http://localhost:9000', 'https://toccup.davwheat.dev']
-  const origin = req.headers.origin
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin)
-  }
+var whitelist = ['http://localhost:8000', 'http://localhost:9000', 'http://toccup.davwheat.dev', 'https://toccup.davwheat.dev']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+}
 
+app.use(cors(corsOptions))
+
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   res.header('Access-Control-Allow-Methods', 'GET')
   res.header('Access-Control-Max-Age', 86400)

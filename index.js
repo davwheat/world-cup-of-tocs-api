@@ -11,7 +11,6 @@ const SendResponse = require('./helpers/SendResponse')
 const fs = require('fs').promises
 const fsSync = require('fs')
 const CreateSinglePollArrayFromTweetData = require('./models/CreateSinglePollArrayFromTweetData')
-const flat_cupData = require('./helpers/FlattenCupData')
 const SinglePoll = require('./models/SinglePoll')
 const VotesInfo = require('./models/VotesInfo')
 
@@ -46,7 +45,13 @@ app.use(shrinkRay({ zlib: { level: 7 }, brotli: { quality: 5 } }))
 async function GetTweetIDs() {
   //   'https://api.twitter.com/2/tweets/search/recent?query=from:geofftech AND #WorldCupOfTubeLines&expansions=attachments.poll_ids',
   const data = await fetch(
-    `https://api.twitter.com/2/tweets/search/recent?query=from:geofftech %23WorldCupOfTrainOperators -is:retweet -is:quote&max_results=100&expansions=attachments.poll_ids`,
+    `https://api.twitter.com/2/tweets/search/recent?query=` +
+      `from:geofftech ` + //? from Geoff
+      `%23WorldCupOfTrainOperators ` + //? has #WorldCupOfTrainOperators
+      `-is:retweet ` + //? Is not a retweet
+      `-is:quote` + //? Is not a quote tweet
+      `&max_results=25` + //? Max 25 results
+      `&expansions=attachments.poll_ids`, //? Include poll data
     // `https://api.twitter.com/2/tweets/search/recent?query=from:davwheat_ %23WorldCupOfTrainOperators -is:retweet -is:quote&max_results=100&expansions=attachments.poll_ids`,
     {
       headers: {
@@ -263,10 +268,10 @@ let listener = app.listen(port || 2678, () => {
   Log(`Listening at localhost:${listener.address().port}`, Log.SEVERITY.INFO)
 
   UpdatePollData()
-  // GetTweetIDs();
 
+  // Update every 2 mins
   setInterval(() => {
     Log('Fetching latest data from the Twitter API')
     UpdatePollData()
-  }, 60000)
+  }, 2 * 60 * 1000)
 })

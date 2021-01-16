@@ -63,7 +63,7 @@ async function GetTweetIDs() {
 
   if (!json.data) {
     Log('No tweets found.', Log.SEVERITY.WARNING)
-    return
+    return null
   }
 
   const pollTweets = json.data.filter(tweet => tweet.attachments && tweet.attachments.poll_ids && tweet.attachments.poll_ids[0])
@@ -85,6 +85,8 @@ async function UpdatePollData() {
   const justIds = []
 
   const newTweetIds = await GetTweetIDs()
+
+  if (!newTweetIds) return
 
   let counter = 0
 
@@ -282,6 +284,7 @@ Log(`Starting API listener...`, Log.SEVERITY.DEBUG)
 let listener = app.listen(port || 2678, () => {
   Log(`Listening at localhost:${listener.address().port}`, Log.SEVERITY.INFO)
 
+  Log('Fetching data from the Twitter API')
   UpdatePollData()
 
   // Update every 2 mins

@@ -12,6 +12,7 @@ const CreateSinglePollArrayFromTweetData = require('./models/CreateSinglePollArr
 const SinglePoll = require('./models/SinglePoll')
 const VotesInfo = require('./models/VotesInfo')
 const morgan = require('morgan')
+const compression = require('compression')
 
 app.use(morgan('combined'))
 
@@ -34,7 +35,7 @@ app.use(
 )
 
 // Add gzip compression
-app.use(shrink - ray - current)
+app.use(compression)
 
 /**
  * @returns {string[]} Tweet IDs identified by the algorithm to be a poll from Geoff!

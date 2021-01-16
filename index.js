@@ -167,7 +167,11 @@ async function UpdatePollData() {
       const lastDataGame = lastData[stage][k]
 
       if (thisPoll.votingStatus === 'IN_PROGRESS') {
+        Log(`Handling vote history of in-progress poll... (${stage}.${k})`, Log.SEVERITY.DEBUG)
+
         if (lastDataGame.votesInfo[0].votes !== thisPoll.votesInfo[0].votes || lastDataGame.votesInfo[1].votes !== thisPoll.votesInfo[1].votes) {
+          Log(`Vote count has changed: updating history...`, Log.SEVERITY.DEBUG)
+
           // Updates have been made to the votes on the API, so we should add an item to the history
           lastDataGame.votesInfo.forEach(
             /**
@@ -183,6 +187,8 @@ async function UpdatePollData() {
             }
           )
         } else {
+          Log(`Vote count has NOT changed.`, Log.SEVERITY.DEBUG)
+
           lastDataGame.votesInfo.forEach(
             /**
              * @param {VotesInfo} votes
@@ -209,11 +215,19 @@ async function UpdatePollData() {
     }
   }
 
+  Log('Finalising data structure')
+
+  Log('Finalising knockout', Log.SEVERITY.DEBUG)
   Object.keys(cupData.knockout).forEach(finaliseDataStructure('knockout'))
+  Log('Finalising groupStages', Log.SEVERITY.DEBUG)
   Object.keys(cupData.groupStages).forEach(finaliseDataStructure('groupStages'))
+  Log('Finalising quarterFinal', Log.SEVERITY.DEBUG)
   Object.keys(cupData.quarterFinal).forEach(finaliseDataStructure('quarterFinal'))
+  Log('Finalising semiFinal', Log.SEVERITY.DEBUG)
   Object.keys(cupData.semiFinal).forEach(finaliseDataStructure('semiFinal'))
+  Log('Finalising runnerUp', Log.SEVERITY.DEBUG)
   Object.keys(cupData.runnerUp).forEach(finaliseDataStructure('runnerUp'))
+  Log('Finalising final', Log.SEVERITY.DEBUG)
   Object.keys(cupData.final).forEach(finaliseDataStructure('final'))
 
   // console.log(JSON.stringify(fullDataStructure, null, 2))
@@ -224,7 +238,9 @@ async function UpdatePollData() {
 
   // Log(JSON.stringify(historicalData));
 
+  Log('Writing data.json to disk', Log.SEVERITY.DEBUG)
   await fs.writeFile('./data/data.json', JSON.stringify(fullDataStructure, null, 2))
+  Log('Writing data.min.json to disk', Log.SEVERITY.DEBUG)
   await fs.writeFile('./data/data.min.json', JSON.stringify(fullDataStructure))
 }
 

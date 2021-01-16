@@ -6,7 +6,7 @@ const Path = require('path')
  * @param {number} [statusCode=200] Status code to be returned
  */
 function SendJSONResponse(res, data, statusCode = 200) {
-  return res.status(statusCode).json({ apiVersion: 1, ...data })
+  return res.status(statusCode).json(data)
 }
 
 /**

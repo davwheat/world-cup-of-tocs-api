@@ -38,8 +38,5 @@
     "eslint": "^7.17.0",
     "pm2": "^4.5.1",
     "prettier": "^2.2.1"
-  },
-  "optionalDependencies": {
-    "node-zopfli-es": "~1.0.7"
   }
 }

@@ -268,7 +268,7 @@ async function GetDataFromTwitterApi(...tweetIds) {
 
   // console.log(JSON.stringify(tweet, null, 2))
 
-  console.log(tweet)
+  // console.log(tweet)
 
   return {
     tweets: tweet.data,

@@ -8,14 +8,13 @@ const Log = require('./logger')
 const TOKEN = process.env.TWITTER_BEARER_TOKEN
 const SendResponse = require('./helpers/SendResponse')
 const fs = require('fs').promises
+const fsSync = require('fs')
 const CreateSinglePollArrayFromTweetData = require('./models/CreateSinglePollArrayFromTweetData')
 const SinglePoll = require('./models/SinglePoll')
 const VotesInfo = require('./models/VotesInfo')
 const morgan = require('morgan')
 const compression = require('compression')
 const { exit } = require('process')
-
-app.use(morgan('combined'))
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -36,7 +35,10 @@ app.use(
 )
 
 // Add gzip compression
-app.use(compression)
+app.use(compression())
+
+app.use(morgan('combined', { stream: fsSync.createWriteStream('./access.log', { flags: 'a' }) }))
+app.use(morgan('dev'))
 
 /**
  * @returns {string[]} Tweet IDs identified by the algorithm to be a poll from Geoff!
@@ -92,34 +94,33 @@ async function UpdatePollData() {
   let counter = 0
 
   // iterate through tweet IDs from old to new
-  newTweetIds &&
-    newTweetIds.reverse().forEach(id => {
-      firstToLastKeysOrder.some(stage => {
-        return Object.keys(newKnownTweets[stage]).some(k => {
-          let key = k,
-            value = newKnownTweets[stage][k].tweetId
+  newTweetIds.reverse().forEach(id => {
+    firstToLastKeysOrder.some(stage => {
+      return Object.keys(newKnownTweets[stage]).some(k => {
+        let key = k,
+          value = newKnownTweets[stage][k].tweetId
 
-          if (value !== null) {
-            justIds.push(value)
-          }
+        if (value !== null) {
+          justIds.push(value)
+        }
 
-          if (value === id) {
-            // We know about this ID already
-            return true
-          }
+        if (value === id) {
+          // We know about this ID already
+          return true
+        }
 
-          // First unknown tweet found -- this must be that tweet!
-          if (value === null) {
-            newKnownTweets[stage][k].tweetId = id
-            justIds.push(id)
-            counter++
-            return true
-          }
+        // First unknown tweet found -- this must be that tweet!
+        if (value === null) {
+          newKnownTweets[stage][key].tweetId = id
+          justIds.push(id)
+          counter++
+          return true
+        }
 
-          return false
-        })
+        return false
       })
     })
+  })
 
   Log(`${counter} IDs were not known to be correct`, counter > 0 ? Log.SEVERITY.WARNING : Log.SEVERITY.INFO)
   Log(`Fetching data for ${justIds.length} tweets...`, Log.SEVERITY.INFO)

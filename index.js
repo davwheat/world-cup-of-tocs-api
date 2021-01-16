@@ -87,6 +87,7 @@ async function GetTweetIDs() {
 
 async function UpdatePollData() {
   const knownTweets = await GetCupJson()
+
   const firstToLastKeysOrder = ['knockout', 'groupStages', 'quarterFinal', 'semiFinal', 'runnerUp', 'final']
 
   const newKnownTweets = { ...knownTweets }
@@ -284,7 +285,7 @@ async function GetDataFromTwitterApi(...tweetIds) {
 }
 
 app.get(`/v1/all_polls`, async (req, res) => {
-  const data = GetDataJson()
+  const data = await GetDataJson()
 
   return SendResponse.JSON(res, data)
 })

@@ -272,7 +272,7 @@ async function GetDataFromTwitterApi(...tweetIds) {
   }
 }
 
-app.get(`/v1/all_pollss`, async (req, res) => {
+app.get(`/v1/all_polls`, async (req, res) => {
   const data = require('./data/data.min.json')
 
   return SendResponse.JSON(res, data)

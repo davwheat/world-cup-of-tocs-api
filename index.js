@@ -15,6 +15,8 @@ const morgan = require('morgan')
 const compression = require('compression')
 const { exit } = require('process')
 
+app.use(morgan('combined'))
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
@@ -34,9 +36,7 @@ app.use(
 )
 
 // Add gzip compression
-app.use(compression())
-
-app.use(morgan('combined'))
+app.use(compression)
 
 /**
  * @returns {string[]} Tweet IDs identified by the algorithm to be a poll from Geoff!
@@ -92,33 +92,34 @@ async function UpdatePollData() {
   let counter = 0
 
   // iterate through tweet IDs from old to new
-  newTweetIds.reverse().forEach(id => {
-    firstToLastKeysOrder.some(stage => {
-      return Object.keys(newKnownTweets[stage]).some(k => {
-        let key = k,
-          value = newKnownTweets[stage][k].tweetId
+  newTweetIds &&
+    newTweetIds.reverse().forEach(id => {
+      firstToLastKeysOrder.some(stage => {
+        return Object.keys(newKnownTweets[stage]).some(k => {
+          let key = k,
+            value = newKnownTweets[stage][k].tweetId
 
-        if (value !== null) {
-          justIds.push(value)
-        }
+          if (value !== null) {
+            justIds.push(value)
+          }
 
-        if (value === id) {
-          // We know about this ID already
-          return true
-        }
+          if (value === id) {
+            // We know about this ID already
+            return true
+          }
 
-        // First unknown tweet found -- this must be that tweet!
-        if (value === null) {
-          newKnownTweets[stage][key].tweetId = id
-          justIds.push(id)
-          counter++
-          return true
-        }
+          // First unknown tweet found -- this must be that tweet!
+          if (value === null) {
+            newKnownTweets[stage][k].tweetId = id
+            justIds.push(id)
+            counter++
+            return true
+          }
 
-        return false
+          return false
+        })
       })
     })
-  })
 
   Log(`${counter} IDs were not known to be correct`, counter > 0 ? Log.SEVERITY.WARNING : Log.SEVERITY.INFO)
   Log(`Fetching data for ${justIds.length} tweets...`, Log.SEVERITY.INFO)
@@ -278,9 +279,11 @@ async function GetDataFromTwitterApi(...tweetIds) {
 app.get(`/v1/all_polls`, async (req, res) => {
   const data = require('./data/data.min.json')
 
-  Log('Sending poll data to user', Log.SEVERITY.DEBUG)
-
   return SendResponse.JSON(res, data)
+})
+
+app.get(`/favicon.ico`, async (req, res) => {
+  return SendResponse.File(res, 'icon.ico')
 })
 
 Log(`Starting API listener...`, Log.SEVERITY.DEBUG)

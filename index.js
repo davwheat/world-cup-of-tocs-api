@@ -125,7 +125,7 @@ async function UpdatePollData() {
   Log(`${counter} IDs were not known to be correct`, counter > 0 ? Log.SEVERITY.WARNING : Log.SEVERITY.INFO)
   Log(`Fetching data for ${justIds.length} tweets...`, Log.SEVERITY.INFO)
 
-  await fs.writeFile('./cup.json', JSON.stringify(newKnownTweets, null, 2))
+  await fs.writeFile('cup.json', JSON.stringify(newKnownTweets, null, 2))
 
   // fetch data from twitter
   const data = await GetDataFromTwitterApi(...justIds)
@@ -144,6 +144,7 @@ async function UpdatePollData() {
   }
 
   const cupData = require('./cup.json')
+  console.log(cupData)
 
   // if (!fsSync.existsSync('./data/data.json')) {
   //   await fs.writeFile('./data/data.json', '{}')

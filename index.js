@@ -284,7 +284,7 @@ async function GetDataFromTwitterApi(...tweetIds) {
 }
 
 app.get(`/v1/all_polls`, async (req, res) => {
-  const data = require('./data/data.min.json')
+  const data = GetDataJson()
 
   return SendResponse.JSON(res, data)
 })

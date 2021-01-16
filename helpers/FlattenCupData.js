@@ -13,6 +13,4 @@ Object.keys(CupData).forEach(key => {
   })
 })
 
-// console.log(flat_cupData)
-
 module.exports = flat_cupData

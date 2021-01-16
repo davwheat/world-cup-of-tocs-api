@@ -1,6 +1,6 @@
 {
   "name": "world-cup-of-tocs-api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A simple express API for the World Cup of Train Operators, run by Geoff Marshall",
   "main": "index.js",
   "repository": "https://github.com/davwheat/world-cup-of-tocs-api.git",

@@ -16,6 +16,9 @@ const morgan = require('morgan')
 const compression = require('compression')
 const { exit } = require('process')
 
+const GetCupJson = async () => JSON.parse((await fs.readFile('./cup.json')).toString())
+const GetDataJson = async () => JSON.parse((await fs.readFile('./data/data.min.json')).toString())
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
@@ -83,7 +86,7 @@ async function GetTweetIDs() {
 }
 
 async function UpdatePollData() {
-  const knownTweets = require('./cup.json')
+  const knownTweets = await GetCupJson()
   const firstToLastKeysOrder = ['knockout', 'groupStages', 'quarterFinal', 'semiFinal', 'runnerUp', 'final']
 
   const newKnownTweets = { ...knownTweets }
@@ -148,12 +151,8 @@ async function UpdatePollData() {
     final: {},
   }
 
-  //const cupData = require('./cup.json')
-  //const lastData = require('./data/data.json')
-
-  // LOAD via file
-  const cupData = JSON.parse((await fs.readFile('./cup.json')).toString());
-  const lastData = JSON.parse((await fs.readFile('./data/data.json')).toString());
+  const cupData = await GetCupJson()
+  const lastData = await GetDataJson()
 
   const finaliseDataStructure = stage => k => {
     /** @type {SinglePoll} */

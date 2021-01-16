@@ -13,6 +13,7 @@ const SinglePoll = require('./models/SinglePoll')
 const VotesInfo = require('./models/VotesInfo')
 const morgan = require('morgan')
 const compression = require('compression')
+const { exit } = require('process')
 
 app.use(morgan('combined'))
 
@@ -282,6 +283,11 @@ app.get(`/v1/all_polls`, async (req, res) => {
 })
 
 Log(`Starting API listener...`, Log.SEVERITY.DEBUG)
+
+if (!TOKEN) {
+  Log(`No API token specified!`, Log.SEVERITY.ERROR)
+  exit(1)
+}
 
 let listener = app.listen(port || 2678, () => {
   Log(`Listening at localhost:${listener.address().port}`, Log.SEVERITY.INFO)

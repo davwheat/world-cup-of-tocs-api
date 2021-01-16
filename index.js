@@ -4,7 +4,6 @@ const fetch = require('node-fetch')
 const express = require('express')
 const app = express()
 const port = env.PORT
-const shrinkRay = require('shrink-ray-current')
 const Log = require('./logger')
 const TOKEN = process.env.TWITTER_BEARER_TOKEN
 const SendResponse = require('./helpers/SendResponse')
@@ -34,8 +33,8 @@ app.use(
   })
 )
 
-// Add gzip/brotli compression
-app.use(shrinkRay({ brotli: { quality: 7 } }))
+// Add gzip compression
+app.use(shrink - ray - current)
 
 /**
  * @returns {string[]} Tweet IDs identified by the algorithm to be a poll from Geoff!

@@ -43,7 +43,7 @@ app.use(morgan('dev'))
  * @returns {string[]} Tweet IDs identified by the algorithm to be a poll from Geoff!
  */
 async function GetTweetIDs() {
-  Log("Feteching tweet IDs...", Log.SEVERITY.INFO);
+  Log('Feteching tweet IDs...', Log.SEVERITY.INFO)
   //   'https://api.twitter.com/2/tweets/search/recent?query=from:geofftech AND #WorldCupOfTubeLines&expansions=attachments.poll_ids',
   const data = await fetch(
     `https://api.twitter.com/2/tweets/search/recent?query=` +
@@ -69,7 +69,7 @@ async function GetTweetIDs() {
     return null
   }
 
-  Log("Filtering...", Log.SEVERITY.DEBUG);
+  Log('Filtering...', Log.SEVERITY.DEBUG)
 
   const pollTweets = json.data.filter(tweet => tweet.attachments && tweet.attachments.poll_ids && tweet.attachments.poll_ids[0])
 
@@ -92,13 +92,13 @@ async function UpdatePollData() {
   const newTweetIds = await GetTweetIDs()
 
   if (!newTweetIds) {
-    Log("No new tweet IDs found", Log.SEVERITY.DEBUG);
+    Log('No new tweet IDs found', Log.SEVERITY.DEBUG)
   }
 
   let counter = 0
 
   // iterate through tweet IDs from old to new
-  Log("Iterating through tweet Ids", Log.SEVERITY.DEBUG);
+  Log('Iterating through tweet Ids', Log.SEVERITY.DEBUG)
   newTweetIds.reverse().forEach(id => {
     firstToLastKeysOrder.some(stage => {
       return Object.keys(newKnownTweets[stage]).some(k => {
@@ -188,10 +188,10 @@ async function UpdatePollData() {
              */
             (votes, i) => {
               if (Array.isArray(votes.votingHistory)) {
-                Log("Using spread operator to update...", Log.SEVERITY.DEBUG);
+                Log('Using spread operator to update...', Log.SEVERITY.DEBUG)
                 thisPoll.votesInfo[i].votingHistory = [...votes.votingHistory, { timestamp: now, votes: thisPoll.votesInfo[i].votes }]
               } else {
-                Log("Updating position " + i, Log.SEVERITY.DEBUG);
+                Log('Updating position ' + i, Log.SEVERITY.DEBUG)
                 thisPoll.votesInfo[i].votingHistory = [{ timestamp: now, votes: thisPoll.votesInfo[i].votes }]
               }
             }
@@ -248,11 +248,11 @@ async function UpdatePollData() {
 
   // Log(JSON.stringify(historicalData));
 
-  Log('Writing data.json to disk', Log.SEVERITY.DEBUG);
-  await fs.writeFile('./data/data.json', JSON.stringify(fullDataStructure, null, 2));
-  Log('Writing data.min.json to disk', Log.SEVERITY.DEBUG);
-  await fs.writeFile('./data/data.min.json', JSON.stringify(fullDataStructure));
-  Log("All data writen. Waiting for next check...", Log.SEVERITY.DEBUG)
+  Log('Writing data.json to disk', Log.SEVERITY.DEBUG)
+  await fs.writeFile('./data/data.json', JSON.stringify(fullDataStructure, null, 2))
+  Log('Writing data.min.json to disk', Log.SEVERITY.DEBUG)
+  await fs.writeFile('./data/data.min.json', JSON.stringify(fullDataStructure))
+  Log('All data writen. Waiting for next check...', Log.SEVERITY.DEBUG)
 }
 
 /**

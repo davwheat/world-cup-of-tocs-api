@@ -80,11 +80,15 @@ const TocCodeToNameMap = Object.freeze({
   '??': 'Unknown',
 })
 
+const _knownTocAliases = {
+  ln: ['LNWR'],
+}
+
 /**
  * @type {{ code: string, name: string }[]}
  */
 const _codeNameArrayMap = Object.keys(TocCodeToNameMap).reduce((arr, currentCode) => {
-  return [...arr, { code: currentCode, name: TocCodeToNameMap[currentCode] }]
+  return [...arr, { code: currentCode, name: TocCodeToNameMap[currentCode], alias: _knownTocAliases[currentCode] }]
 }, [])
 
 /**
@@ -106,7 +110,7 @@ function GetTocColor(code) {
 function GetTocCodeFromName(name) {
   const fuseOptions = {
     isCaseSensitive: false,
-    keys: ['name'],
+    keys: ['name', 'alias'],
   }
 
   const fuse = new Fuse(_codeNameArrayMap, fuseOptions)

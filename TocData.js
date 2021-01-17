@@ -82,6 +82,8 @@ const TocCodeToNameMap = Object.freeze({
 
 const _knownTocAliases = {
   ln: ['LNWR'],
+  gw: ['Great Western Railway'],
+  lo: ['Overground'],
 }
 
 /**

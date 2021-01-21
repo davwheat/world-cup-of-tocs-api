@@ -99,14 +99,20 @@
   },
   "groupStages": {
     "0": {
+      "team1": "vt",
+      "team2": "aw",
       "startDate": 0,
       "tweetId": null
     },
     "1": {
+      "team1": "ln",
+      "team2": "cs",
       "startDate": 0,
       "tweetId": null
     },
     "2": {
+      "team1": "sr",
+      "team2": "es",
       "startDate": 0,
       "tweetId": null
     },

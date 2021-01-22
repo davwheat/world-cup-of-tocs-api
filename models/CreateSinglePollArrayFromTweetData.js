@@ -52,7 +52,7 @@ module.exports = function CreateSinglePollArrayFromTweetData(tweetData) {
     const cd = flat_cupData.find(d => d.tweetId === twitterInfo.tweetId)
 
     const singlePoll = new SinglePoll({
-      scheduledStartDay: cd ? new Date(`${cd.startDate}Z`).getTime() : 0,
+      scheduledStartDay: cd,
       votesInfo: votesInfoArray,
       twitterInfo: twitterInfo,
       votingStatus: poll.voting_status === 'closed' ? 'DONE' : 'IN_PROGRESS',

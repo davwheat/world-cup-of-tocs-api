@@ -161,7 +161,7 @@ async function UpdatePollData() {
 
     if (!game.tweetId) {
       fullDataStructure[stage][k] = new SinglePoll({
-        scheduledStartDay: game.startDate ? `${game.startDate}Z` : 0,
+        scheduledStartDay: game.startDate ? `${game.startDate}Z` : null,
         votesInfo: [
           game.team1 ? new VotesInfo({ tocReportingMark: game.team1 }) : null,
           game.team2 ? new VotesInfo({ tocReportingMark: game.team2 }) : null,

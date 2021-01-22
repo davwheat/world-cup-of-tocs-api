@@ -46,7 +46,7 @@
       "team1": "gn",
       "team2": "tp",
       "startDate": "2021-01-22",
-      "tweetId": null
+      "tweetId": 1352529728108961792
     },
     "8": {
       "team1": "hx",
@@ -101,79 +101,105 @@
     "0": {
       "team1": "vt",
       "team2": "aw",
-      "startDate": 0,
+      "startDate": null,
       "tweetId": null
     },
     "1": {
       "team1": "ln",
       "team2": "cs",
-      "startDate": 0,
+      "startDate": null,
       "tweetId": null
     },
     "2": {
       "team1": "sr",
       "team2": "es",
-      "startDate": 0,
+      "startDate": null,
       "tweetId": null
     },
     "3": {
-      "startDate": 0,
+      "team1": "tl",
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     },
     "4": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     },
     "5": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     },
     "6": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     },
     "7": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     }
   },
   "quarterFinal": {
     "0": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     },
     "1": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     },
     "2": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     },
     "3": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     }
   },
   "semiFinal": {
     "0": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     },
     "1": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     }
   },
   "final": {
     "0": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     }
   },
   "runnerUp": {
     "0": {
-      "startDate": 0,
+      "team1": null,
+      "team2": null,
+      "startDate": null,
       "tweetId": null
     }
   }

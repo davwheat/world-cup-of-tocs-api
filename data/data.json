@@ -10020,7 +10020,7 @@
       "votesInfo": [
         {
           "tocReportingMark": "gn",
-          "votes": 907,
+          "votes": 958,
           "votingHistory": [
             {
               "timestamp": 1611306843114,
@@ -10129,12 +10129,20 @@
             {
               "timestamp": 1611312533144,
               "votes": 907
+            },
+            {
+              "timestamp": 1611313198198,
+              "votes": 930
+            },
+            {
+              "timestamp": 1611313733191,
+              "votes": 958
             }
           ]
         },
         {
           "tocReportingMark": "tp",
-          "votes": 2292,
+          "votes": 2429,
           "votingHistory": [
             {
               "timestamp": 1611306843114,
@@ -10243,6 +10251,14 @@
             {
               "timestamp": 1611312533144,
               "votes": 2292
+            },
+            {
+              "timestamp": 1611313198198,
+              "votes": 2366
+            },
+            {
+              "timestamp": 1611313733191,
+              "votes": 2429
             }
           ]
         }
@@ -10260,7 +10276,7 @@
       "votesInfo": [
         {
           "tocReportingMark": "gn",
-          "votes": 907,
+          "votes": 958,
           "votingHistory": [
             {
               "timestamp": 1611306843114,
@@ -10369,12 +10385,20 @@
             {
               "timestamp": 1611312533144,
               "votes": 907
+            },
+            {
+              "timestamp": 1611313198198,
+              "votes": 930
+            },
+            {
+              "timestamp": 1611313733191,
+              "votes": 958
             }
           ]
         },
         {
           "tocReportingMark": "tp",
-          "votes": 2292,
+          "votes": 2429,
           "votingHistory": [
             {
               "timestamp": 1611306843114,
@@ -10483,6 +10507,14 @@
             {
               "timestamp": 1611312533144,
               "votes": 2292
+            },
+            {
+              "timestamp": 1611313198198,
+              "votes": 2366
+            },
+            {
+              "timestamp": 1611313733191,
+              "votes": 2429
             }
           ]
         }

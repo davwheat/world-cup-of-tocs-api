@@ -52,7 +52,7 @@
       "team1": "hx",
       "team2": "gw",
       "startDate": "2021-01-23",
-      "tweetId": null
+      "tweetId": 1352897209583472640
     },
     "9": {
       "team1": "lo",
@@ -101,49 +101,49 @@
     "0": {
       "team1": "vt",
       "team2": "aw",
-      "startDate": null,
+      "startDate": "2020-02-01",
       "tweetId": null
     },
     "1": {
       "team1": "ln",
       "team2": "cs",
-      "startDate": null,
+      "startDate": "2020-02-02",
       "tweetId": null
     },
     "2": {
       "team1": "sr",
       "team2": "es",
-      "startDate": null,
+      "startDate": "2020-02-03",
       "tweetId": null
     },
     "3": {
       "team1": "tl",
-      "team2": null,
-      "startDate": null,
+      "team2": "tp",
+      "startDate": "2020-02-04",
       "tweetId": null
     },
     "4": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-05",
       "tweetId": null
     },
     "5": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-06",
       "tweetId": null
     },
     "6": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-07",
       "tweetId": null
     },
     "7": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-08",
       "tweetId": null
     }
   },
@@ -151,25 +151,25 @@
     "0": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-09",
       "tweetId": null
     },
     "1": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-10",
       "tweetId": null
     },
     "2": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-11",
       "tweetId": null
     },
     "3": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-12",
       "tweetId": null
     }
   },
@@ -177,13 +177,13 @@
     "0": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-14",
       "tweetId": null
     },
     "1": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-15",
       "tweetId": null
     }
   },
@@ -191,7 +191,7 @@
     "0": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-17",
       "tweetId": null
     }
   },
@@ -199,7 +199,7 @@
     "0": {
       "team1": null,
       "team2": null,
-      "startDate": null,
+      "startDate": "2020-02-16",
       "tweetId": null
     }
   }

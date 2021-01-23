@@ -18,6 +18,7 @@ const { exit } = require('process')
 
 const GetCupJson = async () => JSON.parse((await fs.readFile('./cup.json')).toString())
 const GetDataJson = async () => JSON.parse((await fs.readFile('./data/data.min.json')).toString())
+const GetGameNotes = async () => JSON.parse((await fs.readFile('./game-notes.json')).toString())
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -286,6 +287,12 @@ async function GetDataFromTwitterApi(...tweetIds) {
 
 app.get(`/v1/all_polls`, async (req, res) => {
   const data = await GetDataJson()
+
+  return SendResponse.JSON(res, data)
+})
+
+app.get(`/v1/game_notes`, async (req, res) => {
+  const data = await GetGameNotes()
 
   return SendResponse.JSON(res, data)
 })

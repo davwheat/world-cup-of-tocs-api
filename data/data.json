@@ -11441,58 +11441,19 @@
       ]
     },
     "8": {
-      "scheduledStartDay": 0,
-      "votingStatus": "IN_PROGRESS",
-      "twitterInfo": {
-        "tweetId": "1352896215822827520",
-        "startTime": 1611390568000,
-        "endTime": 1611476967000,
-        "durationMinutes": 1440
-      },
+      "scheduledStartDay": 1611360000000,
+      "votingStatus": "UPCOMING",
+      "twitterInfo": null,
       "votesInfo": [
         {
           "tocReportingMark": "hx",
-          "votes": 62,
-          "votingHistory": [
-            {
-              "timestamp": 1611390602894,
-              "votes": 4
-            },
-            {
-              "timestamp": 1611390662889,
-              "votes": 17
-            },
-            {
-              "timestamp": 1611390722869,
-              "votes": 24
-            },
-            {
-              "timestamp": 1611390782844,
-              "votes": 62
-            }
-          ]
+          "votes": null,
+          "votingHistory": null
         },
         {
-          "tocReportingMark": "ln",
-          "votes": 119,
-          "votingHistory": [
-            {
-              "timestamp": 1611390602894,
-              "votes": 5
-            },
-            {
-              "timestamp": 1611390662889,
-              "votes": 45
-            },
-            {
-              "timestamp": 1611390722869,
-              "votes": 54
-            },
-            {
-              "timestamp": 1611390782844,
-              "votes": 119
-            }
-          ]
+          "tocReportingMark": "gw",
+          "votes": null,
+          "votingHistory": null
         }
       ]
     },

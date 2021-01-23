@@ -11442,18 +11442,33 @@
     },
     "8": {
       "scheduledStartDay": 1611360000000,
-      "votingStatus": "UPCOMING",
-      "twitterInfo": null,
+      "votingStatus": "IN_PROGRESS",
+      "twitterInfo": {
+        "tweetId": "1352897209583472640",
+        "startTime": 1611390805000,
+        "endTime": 1611477204000,
+        "durationMinutes": 1440
+      },
       "votesInfo": [
         {
           "tocReportingMark": "hx",
-          "votes": null,
-          "votingHistory": null
+          "votes": 516,
+          "votingHistory": [
+            {
+              "timestamp": 1611401510896,
+              "votes": 516
+            }
+          ]
         },
         {
           "tocReportingMark": "gw",
-          "votes": null,
-          "votingHistory": null
+          "votes": 2846,
+          "votingHistory": [
+            {
+              "timestamp": 1611401510896,
+              "votes": 2846
+            }
+          ]
         }
       ]
     },
@@ -11579,7 +11594,7 @@
   },
   "groupStages": {
     "0": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1580515200000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11596,7 +11611,7 @@
       ]
     },
     "1": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1580601600000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11613,7 +11628,7 @@
       ]
     },
     "2": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1580688000000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11630,7 +11645,7 @@
       ]
     },
     "3": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1580774400000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11639,11 +11654,15 @@
           "votes": null,
           "votingHistory": null
         },
-        null
+        {
+          "tocReportingMark": "tp",
+          "votes": null,
+          "votingHistory": null
+        }
       ]
     },
     "4": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1580860800000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11652,7 +11671,7 @@
       ]
     },
     "5": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1580947200000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11661,7 +11680,7 @@
       ]
     },
     "6": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581033600000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11670,7 +11689,7 @@
       ]
     },
     "7": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581120000000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11681,7 +11700,7 @@
   },
   "quarterFinal": {
     "0": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581206400000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11690,7 +11709,7 @@
       ]
     },
     "1": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581292800000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11699,7 +11718,7 @@
       ]
     },
     "2": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581379200000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11708,7 +11727,7 @@
       ]
     },
     "3": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581465600000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11719,7 +11738,7 @@
   },
   "semiFinal": {
     "0": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581638400000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11728,7 +11747,7 @@
       ]
     },
     "1": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581724800000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11739,7 +11758,7 @@
   },
   "runnerUp": {
     "0": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581811200000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -11750,7 +11769,7 @@
   },
   "final": {
     "0": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1581897600000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [

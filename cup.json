@@ -123,14 +123,14 @@
       "tweetId": null
     },
     "4": {
-      "team1": null,
-      "team2": null,
+      "team1": "gw",
+      "team2": "lo",
       "startDate": "2020-02-05",
       "tweetId": null
     },
     "5": {
-      "team1": null,
-      "team2": null,
+      "team1": "gr",
+      "team2": "nt",
       "startDate": "2020-02-06",
       "tweetId": null
     },

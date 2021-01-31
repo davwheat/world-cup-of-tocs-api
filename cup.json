@@ -135,14 +135,14 @@
       "tweetId": null
     },
     "6": {
-      "team1": null,
-      "team2": null,
+      "team1": "se",
+      "team2": "sw",
       "startDate": "2020-02-07",
       "tweetId": null
     },
     "7": {
-      "team1": null,
-      "team2": null,
+      "team1": "lm",
+      "team2": "xr",
       "startDate": "2020-02-08",
       "tweetId": null
     }

@@ -100,7 +100,7 @@ async function UpdatePollData() {
     Log('No new tweet IDs found', Log.SEVERITY.DEBUG)
   }
 
-  let counter = 0
+  let guessedGameTweetsCounter = 0
 
   // iterate through tweet IDs from old to new
   Log('Iterating through tweet Ids', Log.SEVERITY.DEBUG)
@@ -108,22 +108,26 @@ async function UpdatePollData() {
     firstToLastKeysOrder.some(stage => {
       return Object.keys(newKnownTweets[stage]).some(k => {
         let key = k,
-          value = newKnownTweets[stage][k].tweetId
+          currentTweetId = newKnownTweets[stage][k].tweetId
 
-        if (value !== null) {
-          justIds.push(value)
+        // If we already have a tweet ID inserted into this game
+        // add that ID to the list
+        if (currentTweetId !== null) {
+          justIds.push(currentTweetId)
         }
 
-        if (value === id) {
-          // We know about this ID already
+        // If the game's tweet ID matches this "new tweet ID"
+        // stop searching for the ID
+        if (currentTweetId === id) {
           return true
         }
 
-        // First unknown tweet found -- this must be that tweet!
-        if (value === null) {
+        // This game has no tweet set, so this "new tweet" must
+        // be for this game!
+        if (currentTweetId === null) {
           newKnownTweets[stage][key].tweetId = id
           justIds.push(id)
-          counter++
+          guessedGameTweetsCounter++
           return true
         }
 
@@ -132,13 +136,24 @@ async function UpdatePollData() {
     })
   })
 
-  Log(`${counter} IDs were not known to be correct`, counter > 0 ? Log.SEVERITY.WARNING : Log.SEVERITY.INFO)
-  Log(`Fetching data for ${justIds.length} tweets...`, Log.SEVERITY.INFO)
+  // removes duplicate entries
+  let finalIds = [...new Set(justIds)]
+
+  while (finalIds.length > 100) {
+    // max for twitter api is 100!
+    // we need to do some magic, i do believe...
+
+    // pop off the oldest tweets (front of array/stack)
+    finalIds.shift()
+  }
+
+  Log(`${guessedGameTweetsCounter} IDs were not known to be correct`, guessedGameTweetsCounter > 0 ? Log.SEVERITY.WARNING : Log.SEVERITY.INFO)
+  Log(`Fetching data for ${finalIds.length} tweets...`, Log.SEVERITY.INFO)
 
   await fs.writeFile('cup.json', JSON.stringify(newKnownTweets, null, 2))
 
   // fetch data from twitter
-  const data = await GetDataFromTwitterApi(...justIds)
+  const data = await GetDataFromTwitterApi(...finalIds)
   // unix timestamp
   const now = new Date().getTime()
 

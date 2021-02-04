@@ -150,7 +150,7 @@
   "quarterFinal": {
     "0": {
       "team1": "vt",
-      "team2": null,
+      "team2": "cs",
       "startDate": "2021-02-09",
       "tweetId": null
     },

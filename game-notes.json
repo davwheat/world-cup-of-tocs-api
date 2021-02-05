@@ -1,5 +1,5 @@
 {
-  "overall": ["If you have any questions or suggestions, tweet us via the links at the bottom of the site."],
+  "overall": ["If you have any questions or suggestions, tweet us via the links at the bottom of the site.", "We're aware of an issue where the site doesn't start tracking polls immediately. We're working to resolve this, but have no ETA at this time."],
   "knockout": {
     "0": ["The API began tracking this poll after it had started, so the first few minutes are untracked."],
     "1": null,

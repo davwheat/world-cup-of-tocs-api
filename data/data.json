@@ -31499,7 +31499,7 @@
       ]
     },
     "6": {
-      "scheduledStartDay": 1612656000000,
+      "scheduledStartDay": 1612742400000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -31516,7 +31516,7 @@
       ]
     },
     "7": {
-      "scheduledStartDay": 1612742400000,
+      "scheduledStartDay": 1612828800000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -31535,7 +31535,7 @@
   },
   "quarterFinal": {
     "0": {
-      "scheduledStartDay": 1612828800000,
+      "scheduledStartDay": 1612915200000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -31552,7 +31552,7 @@
       ]
     },
     "1": {
-      "scheduledStartDay": 1612915200000,
+      "scheduledStartDay": 1613001600000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -31569,7 +31569,7 @@
       ]
     },
     "2": {
-      "scheduledStartDay": 1613001600000,
+      "scheduledStartDay": 1613088000000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -31586,7 +31586,7 @@
       ]
     },
     "3": {
-      "scheduledStartDay": 1613088000000,
+      "scheduledStartDay": 1613174400000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -31597,7 +31597,7 @@
   },
   "semiFinal": {
     "0": {
-      "scheduledStartDay": 1613260800000,
+      "scheduledStartDay": 1613347200000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -31606,7 +31606,7 @@
       ]
     },
     "1": {
-      "scheduledStartDay": 1613347200000,
+      "scheduledStartDay": 1613433600000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -31617,7 +31617,7 @@
   },
   "runnerUp": {
     "0": {
-      "scheduledStartDay": 1613433600000,
+      "scheduledStartDay": 1613606400000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
@@ -31628,7 +31628,7 @@
   },
   "final": {
     "0": {
-      "scheduledStartDay": 1613520000000,
+      "scheduledStartDay": 1613692800000,
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [

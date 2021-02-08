@@ -135,14 +135,14 @@
       "tweetId": "1357966517384716290"
     },
     "6": {
-      "team1": "se",
-      "team2": "sw",
+      "team1": "lm",
+      "team2": "xr",
       "startDate": "2021-02-08",
       "tweetId": "1358695850994761729"
     },
     "7": {
-      "team1": "lm",
-      "team2": "xr",
+      "team1": "se",
+      "team2": "sw",
       "startDate": "2021-02-09",
       "tweetId": null
     }

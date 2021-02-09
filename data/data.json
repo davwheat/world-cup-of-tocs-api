@@ -33228,44 +33228,12 @@
     },
     "7": {
       "scheduledStartDay": 0,
-      "votingStatus": "IN_PROGRESS",
-      "twitterInfo": {
-        "tweetId": "1359064844213891072",
-        "startTime": 1612861283000,
-        "endTime": 1612945883000,
-        "durationMinutes": 1410
-      },
+      "votingStatus": "UPCOMING",
+      "twitterInfo": null,
       "votesInfo": [
-        {
-          "tocReportingMark": "se",
-          "votes": 72,
-          "votingHistory": [
-            {
-              "timestamp": 1612861298603,
-              "votes": 1
-            },
-            {
-              "timestamp": 1612861356259,
-              "votes": 72
-            }
-          ]
-        },
-        {
-          "tocReportingMark": "sw",
-          "votes": 106,
-          "votingHistory": [
-            {
-              "timestamp": 1612861298603,
-              "votes": 0
-            },
-            {
-              "timestamp": 1612861356259,
-              "votes": 106
-            }
-          ]
-        }
+        null,
+        null
       ]
-    }
   },
   "quarterFinal": {
     "0": {

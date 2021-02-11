@@ -175,7 +175,7 @@
   },
   "semiFinal": {
     "0": {
-      "team1": null,
+      "team1": "cs",
       "team2": null,
       "startDate": "2021-02-15",
       "tweetId": null

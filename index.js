@@ -190,6 +190,11 @@ async function UpdatePollData() {
       /** @type {SinglePoll} */
       const lastDataGame = lastData[stage][k]
 
+      if (!thisPoll) {
+        fullDataStructure[stage][k] = lastDataGame
+        return
+      }
+
       if (thisPoll.votingStatus === 'IN_PROGRESS') {
         Log(`Handling vote history of in-progress poll... (${stage}.${k})`, Log.SEVERITY.DEBUG)
 

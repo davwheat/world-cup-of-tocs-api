@@ -84,6 +84,7 @@ const _knownTocAliases = {
   ln: ['LNWR'],
   gw: ['Great Western Railway'],
   lo: ['Overground'],
+  lm: ['WMR'],
 }
 
 /**

@@ -189,7 +189,7 @@
   },
   "final": {
     "0": {
-      "team1": null,
+      "team1": "sr",
       "team2": null,
       "startDate": "2021-02-19",
       "tweetId": null
@@ -197,7 +197,7 @@
   },
   "runnerUp": {
     "0": {
-      "team1": null,
+      "team1": "cs",
       "team2": null,
       "startDate": "2021-02-18",
       "tweetId": null

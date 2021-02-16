@@ -42247,7 +42247,7 @@
       ]
     },
     "1": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1613433600000,
       "votingStatus": "IN_PROGRESS",
       "twitterInfo": {
         "tweetId": "1361600384536629250",
@@ -42258,7 +42258,7 @@
       "votesInfo": [
         {
           "tocReportingMark": "gr",
-          "votes": 1633,
+          "votes": 2017,
           "votingHistory": [
             {
               "timestamp": 1613465873053,
@@ -42351,12 +42351,40 @@
             {
               "timestamp": 1613467912360,
               "votes": 1633
+            },
+            {
+              "timestamp": 1613468031309,
+              "votes": 1696
+            },
+            {
+              "timestamp": 1613468152491,
+              "votes": 1753
+            },
+            {
+              "timestamp": 1613468378282,
+              "votes": 1811
+            },
+            {
+              "timestamp": 1613468438916,
+              "votes": 1868
+            },
+            {
+              "timestamp": 1613468557428,
+              "votes": 1937
+            },
+            {
+              "timestamp": 1613468679011,
+              "votes": 1978
+            },
+            {
+              "timestamp": 1613468833437,
+              "votes": 2017
             }
           ]
         },
         {
-          "tocReportingMark": "gw",
-          "votes": 694,
+          "tocReportingMark": "lm",
+          "votes": 918,
           "votingHistory": [
             {
               "timestamp": 1613465873053,
@@ -42449,6 +42477,34 @@
             {
               "timestamp": 1613467912360,
               "votes": 694
+            },
+            {
+              "timestamp": 1613468031309,
+              "votes": 724
+            },
+            {
+              "timestamp": 1613468152491,
+              "votes": 763
+            },
+            {
+              "timestamp": 1613468378282,
+              "votes": 790
+            },
+            {
+              "timestamp": 1613468438916,
+              "votes": 822
+            },
+            {
+              "timestamp": 1613468557428,
+              "votes": 853
+            },
+            {
+              "timestamp": 1613468679011,
+              "votes": 886
+            },
+            {
+              "timestamp": 1613468833437,
+              "votes": 918
             }
           ]
         }

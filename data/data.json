@@ -44934,7 +44934,7 @@
       "votesInfo": [
         {
           "tocReportingMark": "sr",
-          "votes": 10613,
+          "votes": 10712,
           "votingHistory": [
             {
               "timestamp": 1613730823676,
@@ -45311,12 +45311,16 @@
             {
               "timestamp": 1613775156041,
               "votes": 10613
+            },
+            {
+              "timestamp": 1613776706319,
+              "votes": 10712
             }
           ]
         },
         {
           "tocReportingMark": "gr",
-          "votes": 9846,
+          "votes": 9918,
           "votingHistory": [
             {
               "timestamp": 1613730823676,
@@ -45693,6 +45697,10 @@
             {
               "timestamp": 1613775156041,
               "votes": 9846
+            },
+            {
+              "timestamp": 1613776706319,
+              "votes": 9918
             }
           ]
         }

@@ -1,7 +1,7 @@
 {
   "overall": [
     "If you have any questions or suggestions, tweet us via the links at the bottom of the site.",
-    "Due to a networking problem, some poll data has been lost. We're working to restore this ASAP."
+    "Runner up voting data between poll start and midnight has been recovered. The rest was unrecoverable."
   ],
   "knockout": {
     "0": ["The API began tracking this poll after it had started, so the first few minutes are untracked."],
@@ -47,11 +47,13 @@
     "1": null
   },
   "final": {
-    "0": null
+    "0": [
+      "The larger-than-normal gap between 13h 25m and 13h 51m was caused by a planned API outage to recover the lost runner up voting data."
+    ]
   },
   "runnerUp": {
     "0": [
-      "THIS IS NOT THE REAL DATA! There is an issue with the API, so it is running locally on one of our PCs. We'll retrieve this data ASAP."
+      "Due to a networking issue, the data between 13h 29m and poll end has been lost. The final vote count is correct."
     ]
   }
 }

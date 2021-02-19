@@ -1,5 +1,8 @@
 {
-  "overall": ["If you have any questions or suggestions, tweet us via the links at the bottom of the site."],
+  "overall": [
+    "If you have any questions or suggestions, tweet us via the links at the bottom of the site.",
+    "Due to a networking problem, some poll data has been lost. We're working to restore this ASAP."
+  ],
   "knockout": {
     "0": ["The API began tracking this poll after it had started, so the first few minutes are untracked."],
     "1": null,
@@ -19,7 +22,10 @@
     "15": null
   },
   "groupStages": {
-    "0": ["Due to some unexpected downtime, the first 1h 20m of this poll was lost.", "We're not sure what happened to this poll at the end. It ended with 4123 votes (63.08%) for Avanti, and 2413 votes (36.92%) for TfW, with a difference of 1710 votes."],
+    "0": [
+      "Due to some unexpected downtime, the first 1h 20m of this poll was lost.",
+      "We're not sure what happened to this poll at the end. It ended with 4123 votes (63.08%) for Avanti, and 2413 votes (36.92%) for TfW, with a difference of 1710 votes."
+    ],
     "1": null,
     "2": null,
     "3": null,
@@ -35,13 +41,17 @@
     "3": null
   },
   "semiFinal": {
-    "0": ["An issue meant we didn't record the start of this poll. For more info, see here: https://twitter.com/davwheat_/status/1361277610681057281"],
+    "0": [
+      "An issue meant we didn't record the start of this poll. For more info, see here: https://twitter.com/davwheat_/status/1361277610681057281"
+    ],
     "1": null
   },
   "final": {
     "0": null
   },
   "runnerUp": {
-    "0": null
+    "0": [
+      "THIS IS NOT THE REAL DATA! There is an issue with the API, so it is running locally on one of our PCs. We'll retrieve this data ASAP."
+    ]
   }
 }

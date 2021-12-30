@@ -331,12 +331,12 @@ if (!TOKEN) {
 let listener = app.listen(port || 2678, () => {
   Log(`Listening at localhost:${listener.address().port}`, Log.SEVERITY.INFO)
 
-  Log('Fetching data from the Twitter API')
-  UpdatePollData()
+//  Log('Fetching data from the Twitter API')
+//  UpdatePollData()
 
   // Update every 2 mins
-  setInterval(() => {
-    Log('Fetching latest data from the Twitter API')
-    UpdatePollData()
-  }, 1 * 60 * 1000)
+//  setInterval(() => {
+//    Log('Fetching latest data from the Twitter API')
+//    UpdatePollData()
+//  }, 1 * 60 * 1000)
 })

@@ -2,7 +2,7 @@ FROM node:lts-alpine
 ENV NODE_ENV=production
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "yarn.lock", ".yarnrc.yml", "./"]
-# Update this is update yarn!
+# Update this if updating yarn!
 COPY "./.yarn/releases/yarn-3.1.1.cjs" "./.yarn/releases/yarn-3.1.1.cjs"
 RUN yarn
 COPY . .

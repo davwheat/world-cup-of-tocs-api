@@ -1,6 +1,6 @@
 import Fuse from 'fuse.js'
 
-export type TubeCode = 'ju' | 'tr' | 'ba' | 'dl' | 'ci' | 'hc' | 'wc' | 'pi' | 'tl' | 'me' | 'no' | 'ce' | 'vi' | 'di' | 'ov'
+export type TubeCode = 'ju' | 'tr' | 'ba' | 'dl' | 'ci' | 'hc' | 'wc' | 'pi' | 'tl' | 'mt' | 'no' | 'ce' | 'vi' | 'di' | 'ov' | 'tf' | 'ca'
 
 /**
  * Defines the main color used for TOC branding, defined by their reporting mark.
@@ -38,6 +38,25 @@ const TocColors = Object.freeze({
   lm: '#ff8200',
   xr: '#0019a8',
   sx: '#6b717a',
+
+  // Tube lines
+  ba: '#B36305',
+  no: '#000000',
+  tf: '#0019A8',
+  ju: '#A0A5A9',
+  ce: '#0019A8',
+  di: '#007D32',
+  ci: '#FFD329',
+  hc: '#F4A9BE',
+  vi: '#0098d8',
+  mt: '#9b0058',
+  tr: '#00bd19',
+  ov: '#ef7b10',
+  dl: '#00afad',
+  pi: '#0019a8',
+  wc: '#95CDBA',
+  ca: '#E21836',
+
   '??': '#000',
 })
 
@@ -54,12 +73,14 @@ const TocCodeToNameMap: Record<TubeCode | '??', string> = {
   wc: 'Waterloo & City',
   pi: 'Piccadilly',
   tl: 'Thameslink',
-  me: 'Metropolitan',
+  mt: 'Metropolitan',
   no: 'Northern',
   ce: 'Central',
   vi: 'Victoria',
   di: 'District',
   ov: 'Overground',
+  tf: 'TfL Rail',
+  ca: "Cable Car",
   '??': 'Unknown',
 } as const
 

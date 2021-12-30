@@ -1,106 +1,106 @@
 {
   "groupStages": {
     "0": {
-      "team1": "vt",
-      "team2": "aw",
+      "team1": "ju",
+      "team2": "tr",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "1": {
-      "team1": "ln",
-      "team2": "cs",
+      "team1": "ba",
+      "team2": "dl",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "2": {
-      "team1": "sr",
-      "team2": "es",
+      "team1": "ci",
+      "team2": "hc",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "3": {
-      "team1": "tl",
-      "team2": "tp",
+      "team1": "wc",
+      "team2": "pi",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "4": {
-      "team1": "gw",
-      "team2": "lo",
+      "team1": "tl",
+      "team2": "tf",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "5": {
-      "team1": "gr",
-      "team2": "nt",
+      "team1": "mt",
+      "team2": "no",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "6": {
-      "team1": "lm",
-      "team2": "xr",
+      "team1": "ce",
+      "team2": "vi",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "7": {
-      "team1": "se",
-      "team2": "sw",
+      "team1": "di",
+      "team2": "ov",
       "startDate": "2021-12-31",
       "tweetId": null
     }
   },
   "quarterFinal": {
     "0": {
-      "team1": "vt",
-      "team2": "cs",
+      "team1": null,
+      "team2": null,
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "1": {
-      "team1": "sr",
-      "team2": "tp",
+      "team1": null,
+      "team2": null,
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "2": {
-      "team1": "gw",
-      "team2": "gr",
+      "team1": null,
+      "team2": null,
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "3": {
-      "team1": "lm",
-      "team2": "sw",
+      "team1": null,
+      "team2": null,
       "startDate": "2021-12-31",
       "tweetId": null
     }
   },
   "semiFinal": {
     "0": {
-      "team1": "cs",
-      "team2": "sr",
+      "team1": null,
+      "team2": null,
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "1": {
-      "team1": "gr",
-      "team2": "lm",
+      "team1": null,
+      "team2": null,
       "startDate": "2021-12-31",
       "tweetId": null
     }
   },
   "final": {
     "0": {
-      "team1": "sr",
-      "team2": "gr",
+      "team1": null,
+      "team2": null,
       "startDate": "2021-12-31",
       "tweetId": null
     }
   },
   "runnerUp": {
     "0": {
-      "team1": "cs",
-      "team2": "lm",
+      "team1": null,
+      "team2": null,
       "startDate": "2021-12-31",
       "tweetId": null
     }

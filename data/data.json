@@ -6,12 +6,12 @@
       "twitterInfo": null,
       "votesInfo": [
         {
-          "tocReportingMark": "vt",
+          "tocReportingMark": "ju",
           "votes": null,
           "votingHistory": null
         },
         {
-          "tocReportingMark": "aw",
+          "tocReportingMark": "tr",
           "votes": null,
           "votingHistory": null
         }
@@ -23,12 +23,12 @@
       "twitterInfo": null,
       "votesInfo": [
         {
-          "tocReportingMark": "ln",
+          "tocReportingMark": "ba",
           "votes": null,
           "votingHistory": null
         },
         {
-          "tocReportingMark": "cs",
+          "tocReportingMark": "dl",
           "votes": null,
           "votingHistory": null
         }
@@ -40,12 +40,12 @@
       "twitterInfo": null,
       "votesInfo": [
         {
-          "tocReportingMark": "sr",
+          "tocReportingMark": "ci",
           "votes": null,
           "votingHistory": null
         },
         {
-          "tocReportingMark": "es",
+          "tocReportingMark": "hc",
           "votes": null,
           "votingHistory": null
         }
@@ -57,12 +57,12 @@
       "twitterInfo": null,
       "votesInfo": [
         {
-          "tocReportingMark": "tl",
+          "tocReportingMark": "wc",
           "votes": null,
           "votingHistory": null
         },
         {
-          "tocReportingMark": "tp",
+          "tocReportingMark": "pi",
           "votes": null,
           "votingHistory": null
         }
@@ -74,12 +74,12 @@
       "twitterInfo": null,
       "votesInfo": [
         {
-          "tocReportingMark": "gw",
+          "tocReportingMark": "tl",
           "votes": null,
           "votingHistory": null
         },
         {
-          "tocReportingMark": "lo",
+          "tocReportingMark": "tf",
           "votes": null,
           "votingHistory": null
         }
@@ -91,12 +91,12 @@
       "twitterInfo": null,
       "votesInfo": [
         {
-          "tocReportingMark": "gr",
+          "tocReportingMark": "mt",
           "votes": null,
           "votingHistory": null
         },
         {
-          "tocReportingMark": "nt",
+          "tocReportingMark": "no",
           "votes": null,
           "votingHistory": null
         }
@@ -108,12 +108,12 @@
       "twitterInfo": null,
       "votesInfo": [
         {
-          "tocReportingMark": "lm",
+          "tocReportingMark": "ce",
           "votes": null,
           "votingHistory": null
         },
         {
-          "tocReportingMark": "xr",
+          "tocReportingMark": "vi",
           "votes": null,
           "votingHistory": null
         }
@@ -125,12 +125,12 @@
       "twitterInfo": null,
       "votesInfo": [
         {
-          "tocReportingMark": "se",
+          "tocReportingMark": "di",
           "votes": null,
           "votingHistory": null
         },
         {
-          "tocReportingMark": "sw",
+          "tocReportingMark": "ov",
           "votes": null,
           "votingHistory": null
         }
@@ -143,16 +143,8 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        {
-          "tocReportingMark": "vt",
-          "votes": null,
-          "votingHistory": null
-        },
-        {
-          "tocReportingMark": "cs",
-          "votes": null,
-          "votingHistory": null
-        }
+        null,
+        null
       ]
     },
     "1": {
@@ -160,16 +152,8 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        {
-          "tocReportingMark": "sr",
-          "votes": null,
-          "votingHistory": null
-        },
-        {
-          "tocReportingMark": "tp",
-          "votes": null,
-          "votingHistory": null
-        }
+        null,
+        null
       ]
     },
     "2": {
@@ -177,16 +161,8 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        {
-          "tocReportingMark": "gw",
-          "votes": null,
-          "votingHistory": null
-        },
-        {
-          "tocReportingMark": "gr",
-          "votes": null,
-          "votingHistory": null
-        }
+        null,
+        null
       ]
     },
     "3": {
@@ -194,16 +170,8 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        {
-          "tocReportingMark": "lm",
-          "votes": null,
-          "votingHistory": null
-        },
-        {
-          "tocReportingMark": "sw",
-          "votes": null,
-          "votingHistory": null
-        }
+        null,
+        null
       ]
     }
   },
@@ -213,16 +181,8 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        {
-          "tocReportingMark": "cs",
-          "votes": null,
-          "votingHistory": null
-        },
-        {
-          "tocReportingMark": "sr",
-          "votes": null,
-          "votingHistory": null
-        }
+        null,
+        null
       ]
     },
     "1": {
@@ -230,16 +190,8 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        {
-          "tocReportingMark": "gr",
-          "votes": null,
-          "votingHistory": null
-        },
-        {
-          "tocReportingMark": "lm",
-          "votes": null,
-          "votingHistory": null
-        }
+        null,
+        null
       ]
     }
   },
@@ -249,16 +201,8 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        {
-          "tocReportingMark": "cs",
-          "votes": null,
-          "votingHistory": null
-        },
-        {
-          "tocReportingMark": "lm",
-          "votes": null,
-          "votingHistory": null
-        }
+        null,
+        null
       ]
     }
   },
@@ -268,16 +212,8 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        {
-          "tocReportingMark": "sr",
-          "votes": null,
-          "votingHistory": null
-        },
-        {
-          "tocReportingMark": "gr",
-          "votes": null,
-          "votingHistory": null
-        }
+        null,
+        null
       ]
     }
   }

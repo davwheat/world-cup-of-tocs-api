@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  worldcupoftubelinesapi:
+    image: worldcupoftubelinesapi
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+      TWITTER_BEARER_TOKEN: ${TWITTER_BEARER_TOKEN}
+    ports:
+      - 2678:2678
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]

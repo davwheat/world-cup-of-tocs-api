@@ -1,6 +1,11 @@
-const chalk = require('chalk')
+import chalk from 'chalk'
 
-const SEVERITY = Object.freeze({ ERROR: 0, WARNING: 1, INFO: 2, DEBUG: 3 })
+enum SEVERITY {
+  ERROR = 0,
+  WARNING = 1,
+  INFO = 2,
+  DEBUG = 3,
+}
 
 /**
  * Log a message in a prettier way.
@@ -8,15 +13,11 @@ const SEVERITY = Object.freeze({ ERROR: 0, WARNING: 1, INFO: 2, DEBUG: 3 })
  * @param {String} message Message to log to console
  * @param {SEVERITY} severity Severity of the log
  */
-function Log(message, severity = SEVERITY.INFO) {
-  /** @type {String} */
-  let msg = message
-  /** @type {SEVERITY} */
-  let sev = severity
-  /** @type {Function} */
-  let sevColor
-  /** @type {String} */
-  let type
+function Log(message: string, severity: SEVERITY = SEVERITY.INFO) {
+  let msg: string = message
+  let sev: SEVERITY = severity
+  let sevColor: Function
+  let type: string
 
   if (!Object.values(SEVERITY).includes(severity)) {
     sev = SEVERITY.INFO
@@ -60,14 +61,10 @@ function TimestampString() {
 
 /**
  * Pad the start of a string/number with a 0
- *
- * @param {String|Number} s string
- * @param {Number=2} l number of chars
- * @returns {String}
  */
-function Pad(s, l = 2) {
+function Pad(s: string | number, l = 2): string {
   return s.toString().padStart(l, '0')
 }
 
-module.exports = Log
-module.exports.SEVERITY = SEVERITY
+export default Log
+export { SEVERITY }

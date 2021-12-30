@@ -1,4 +1,6 @@
-const Fuse = require('fuse.js')
+import Fuse from 'fuse.js'
+
+export type TubeCode = 'ju' | 'tr' | 'ba' | 'dl' | 'ci' | 'hc' | 'wc' | 'pi' | 'tl' | 'me' | 'no' | 'ce' | 'vi' | 'di' | 'ov'
 
 /**
  * Defines the main color used for TOC branding, defined by their reporting mark.
@@ -42,75 +44,49 @@ const TocColors = Object.freeze({
 /**
  * Defines a list of TOC names mapped to their reporting marks.
  */
-const TocCodeToNameMap = Object.freeze({
-  vt: 'Avanti West Coast',
-  em: 'East Midlands Railway',
-  me: 'Merseyrail',
-  aw: 'Transport for Wales',
-  ln: 'London Northwestern',
-  cc: 'c2c',
-  cs: 'Caledonian Sleeper',
-  il: 'Island Line',
-  gc: 'Grand Central',
-  sr: 'ScotRail',
-  es: 'Eurostar',
-  cr: 'Chiltern Railways',
-  xc: 'CrossCountry',
+const TocCodeToNameMap: Record<TubeCode | '??', string> = {
+  ju: 'Jubilee',
+  tr: 'Trams',
+  ba: 'Bakerloo',
+  dl: 'DLR',
+  ci: 'Circle',
+  hc: 'Hammersmith & City',
+  wc: 'Waterloo & City',
+  pi: 'Piccadilly',
   tl: 'Thameslink',
-  gn: 'Great Northern',
-  tp: 'TransPennine Express',
-  hx: 'Heathrow Express',
-  gw: 'GWR',
-  lo: 'London Overground',
-  le: 'Greater Anglia',
-  gr: 'LNER',
-  // Unofficial
-  ie: 'Irish Rail',
-  nt: 'Northern Trains',
-  // Unofficial
-  ni: 'Translink',
-  sn: 'Southern',
-  se: 'Southeastern',
-  sw: 'South Western Railway',
-  ht: 'Hull Trains',
-  gx: 'Gatwick Expressssss',
-  lm: 'West Midlands Railway',
-  xr: 'TfL Rail',
-  sx: 'Stansted Express',
+  me: 'Metropolitan',
+  no: 'Northern',
+  ce: 'Central',
+  vi: 'Victoria',
+  di: 'District',
+  ov: 'Overground',
   '??': 'Unknown',
-})
+} as const
 
-const _knownTocAliases = {
-  ln: ['LNWR'],
-  gw: ['Great Western Railway'],
-  lo: ['Overground'],
-  lm: ['WMR'],
+const _knownTocAliases: Partial<Record<TubeCode, string[]>> = {
+  hc: ['H&C'],
+  wc: ['W&C'],
+  ov: ['London Overground'],
 }
 
-/**
- * @type {{ code: string, name: string }[]}
- */
-const _codeNameArrayMap = Object.keys(TocCodeToNameMap).reduce((arr, currentCode) => {
+const _codeNameArrayMap: { code: TubeCode; name: string }[] = Object.keys(TocCodeToNameMap).reduce((arr, currentCode) => {
   return [...arr, { code: currentCode, name: TocCodeToNameMap[currentCode], alias: _knownTocAliases[currentCode] }]
 }, [])
 
 /**
  * Get a TOC's name from their two letter reporting mark.
- *
- * @param {string} code
- * @returns {string}
  */
-function GetTocName(code) {
+function GetTocName(code: string): string {
   let c = code.toString().toLowerCase()
   return TocCodeToNameMap[c] || 'Unknown'
 }
 
-function GetTocColor(code) {
+function GetTocColor(code: string): string {
   let c = code.toString().toLowerCase()
   return TocColors[c] || '#000'
 }
 
-function GetTocCodeFromName(name) {
+function GetTocCodeFromName(name: string): string {
   const fuseOptions = {
     isCaseSensitive: false,
     keys: ['name', 'alias'],
@@ -121,4 +97,4 @@ function GetTocCodeFromName(name) {
   return fuse.search(name)[0].item.code
 }
 
-module.exports = { GetTocName, GetTocColor, GetTocCodeFromName }
+export { GetTocName, GetTocColor, GetTocCodeFromName }

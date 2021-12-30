@@ -1,206 +1,108 @@
 {
-  "knockout": {
-    "0": {
-      "team1": "vt",
-      "team2": "em",
-      "startDate": "2021-01-15",
-      "tweetId": "1350003312934924289"
-    },
-    "1": {
-      "team1": "me",
-      "team2": "aw",
-      "startDate": "2021-01-16",
-      "tweetId": "1350386296544485379"
-    },
-    "2": {
-      "team1": "ln",
-      "team2": "cc",
-      "startDate": "2021-01-17",
-      "tweetId": "1350723491461554176"
-    },
-    "3": {
-      "team1": "cs",
-      "team2": "il",
-      "startDate": "2021-01-18",
-      "tweetId": "1351100069391556608"
-    },
-    "4": {
-      "team1": "gc",
-      "team2": "sr",
-      "startDate": "2021-01-19",
-      "tweetId": "1351455148695027718"
-    },
-    "5": {
-      "team1": "es",
-      "team2": "cr",
-      "startDate": "2021-01-20",
-      "tweetId": "1351819249237561345"
-    },
-    "6": {
-      "team1": "xc",
-      "team2": "tl",
-      "startDate": "2021-01-21",
-      "tweetId": "1352183163234246656"
-    },
-    "7": {
-      "team1": "gn",
-      "team2": "tp",
-      "startDate": "2021-01-22",
-      "tweetId": "1352529728108961792"
-    },
-    "8": {
-      "team1": "hx",
-      "team2": "gw",
-      "startDate": "2021-01-23",
-      "tweetId": "1352897209583472640"
-    },
-    "9": {
-      "team1": "lo",
-      "team2": "le",
-      "startDate": "2021-01-24",
-      "tweetId": "1353275867921862656"
-    },
-    "10": {
-      "team1": "gr",
-      "team2": "ie",
-      "startDate": "2021-01-25",
-      "tweetId": "1353626828213280768"
-    },
-    "11": {
-      "team1": "nt",
-      "team2": "ni",
-      "startDate": "2021-01-26",
-      "tweetId": "1353978817447141377"
-    },
-    "12": {
-      "team1": "sn",
-      "team2": "se",
-      "startDate": "2021-01-27",
-      "tweetId": "1354363560772694016"
-    },
-    "13": {
-      "team1": "sw",
-      "team2": "ht",
-      "startDate": "2021-01-28",
-      "tweetId": "1354717974620475394"
-    },
-    "14": {
-      "team1": "gx",
-      "team2": "lm",
-      "startDate": "2021-01-29",
-      "tweetId": "1355087391694979076"
-    },
-    "15": {
-      "team1": "xr",
-      "team2": "sx",
-      "startDate": "2021-01-30",
-      "tweetId": "1355433004622106627"
-    }
-  },
   "groupStages": {
     "0": {
       "team1": "vt",
       "team2": "aw",
-      "startDate": "2021-02-01",
-      "tweetId": "1356163391665164288"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "1": {
       "team1": "ln",
       "team2": "cs",
-      "startDate": "2021-02-02",
-      "tweetId": "1356524838190473217"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "2": {
       "team1": "sr",
       "team2": "es",
-      "startDate": "2021-02-03",
-      "tweetId": "1356883862907998208"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "3": {
       "team1": "tl",
       "team2": "tp",
-      "startDate": "2021-02-04",
-      "tweetId": "1357257558390620163"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "4": {
       "team1": "gw",
       "team2": "lo",
-      "startDate": "2021-02-05",
-      "tweetId": "1357612685483991041"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "5": {
       "team1": "gr",
       "team2": "nt",
-      "startDate": "2021-02-06",
-      "tweetId": "1357966517384716290"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "6": {
       "team1": "lm",
       "team2": "xr",
-      "startDate": "2021-02-08",
-      "tweetId": "1358695850994761729"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "7": {
       "team1": "se",
       "team2": "sw",
-      "startDate": "2021-02-09",
-      "tweetId": "1359065764871946243"
+      "startDate": "2021-12-31",
+      "tweetId": null
     }
   },
   "quarterFinal": {
     "0": {
       "team1": "vt",
       "team2": "cs",
-      "startDate": "2021-02-10",
-      "tweetId": "1359416048336920578"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "1": {
       "team1": "sr",
       "team2": "tp",
-      "startDate": "2021-02-11",
-      "tweetId": "1359789269947191297"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "2": {
       "team1": "gw",
       "team2": "gr",
-      "startDate": "2021-02-12",
-      "tweetId": "1360150998375927811"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "3": {
       "team1": "lm",
       "team2": "sw",
-      "startDate": "2021-02-13",
-      "tweetId": "1360506599777959941"
+      "startDate": "2021-12-31",
+      "tweetId": null
     }
   },
   "semiFinal": {
     "0": {
       "team1": "cs",
       "team2": "sr",
-      "startDate": "2021-02-15",
-      "tweetId": "1361228162689032196"
+      "startDate": "2021-12-31",
+      "tweetId": null
     },
     "1": {
       "team1": "gr",
       "team2": "lm",
-      "startDate": "2021-02-16",
-      "tweetId": "1361600384536629250"
+      "startDate": "2021-12-31",
+      "tweetId": null
     }
   },
   "final": {
     "0": {
       "team1": "sr",
       "team2": "gr",
-      "startDate": "2021-02-19",
-      "tweetId": "1362695096190328832"
+      "startDate": "2021-12-31",
+      "tweetId": null
     }
   },
   "runnerUp": {
     "0": {
       "team1": "cs",
       "team2": "lm",
-      "startDate": "2021-02-18",
-      "tweetId": "1362321745592651779"
+      "startDate": "2021-12-31",
+      "tweetId": null
     }
   }
 }

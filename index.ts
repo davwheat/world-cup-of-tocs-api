@@ -1,30 +1,31 @@
-require('dotenv').config()
+import dotenv from 'dotenv'
+dotenv.config()
 const env = process.env
-const fetch = require('node-fetch')
-const express = require('express')
+import fetch from 'node-fetch'
+import express, { urlencoded } from 'express'
 const app = express()
 const port = env.PORT
-const Log = require('./logger')
+import Log, { SEVERITY } from './logger'
 const TOKEN = process.env.TWITTER_BEARER_TOKEN
-const SendResponse = require('./helpers/SendResponse')
-const fs = require('fs').promises
-const fsSync = require('fs')
-const CreateSinglePollArrayFromTweetData = require('./models/CreateSinglePollArrayFromTweetData')
-const SinglePoll = require('./models/SinglePoll')
-const VotesInfo = require('./models/VotesInfo')
-const morgan = require('morgan')
-const compression = require('compression')
-const { exit } = require('process')
+import { JSON as _JSON, File } from './helpers/SendResponse'
+import { promises as fs } from 'fs'
+import { createWriteStream } from 'fs'
+import CreateSinglePollArrayFromTweetData from './models/CreateSinglePollArrayFromTweetData'
+import SinglePoll from './models/SinglePoll'
+import VotesInfo from './models/VotesInfo'
+import morgan from 'morgan'
+import compression from 'compression'
+import { exit } from 'process'
 
-const GetCupJson = async () => JSON.parse((await fs.readFile('./cup.json')).toString())
-const GetDataJson = async () => JSON.parse((await fs.readFile('./data/data.min.json')).toString())
-const GetGameNotes = async () => JSON.parse((await fs.readFile('./game-notes.json')).toString())
+const GetCupJson = async (): Promise<Record<string, any>> => JSON.parse((await fs.readFile('./cup.json')).toString())
+const GetDataJson = async (): Promise<Record<string, any>> => JSON.parse((await fs.readFile('./data/data.min.json')).toString())
+const GetGameNotes = async (): Promise<Record<string, any>> => JSON.parse((await fs.readFile('./game-notes.json')).toString())
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   res.header('Access-Control-Allow-Methods', 'GET')
-  res.header('Access-Control-Max-Age', 86400)
+  res.header('Access-Control-Max-Age', '86400')
   res.header('Cache-Control', `public, max-age=60, stale-if-error=600, stale-while-revalidate=120`)
   next()
 })
@@ -32,7 +33,7 @@ app.use((req, res, next) => {
 // Add ETag caching
 app.set('etag', 'weak')
 app.use(
-  express.urlencoded({
+  urlencoded({
     extended: true,
   })
 )
@@ -40,19 +41,19 @@ app.use(
 // Add gzip compression
 app.use(compression())
 
-app.use(morgan('combined', { stream: fsSync.createWriteStream('./access.log', { flags: 'a' }) }))
+app.use(morgan('combined', { stream: createWriteStream('./access.log', { flags: 'a' }) }))
 app.use(morgan('dev'))
 
 /**
- * @returns {string[]} Tweet IDs identified by the algorithm to be a poll from Geoff!
+ * @returns Tweet IDs identified by the algorithm to be a poll from Geoff
  */
-async function GetTweetIDs() {
-  Log('Feteching tweet IDs...', Log.SEVERITY.INFO)
+async function GetTweetIDs(): Promise<string[]> {
+  Log('Feteching tweet IDs...', SEVERITY.INFO)
   //   'https://api.twitter.com/2/tweets/search/recent?query=from:geofftech AND #WorldCupOfTubeLines&expansions=attachments.poll_ids',
   const data = await fetch(
     `https://api.twitter.com/2/tweets/search/recent?query=` +
       `from:geofftech ` + //? from Geoff
-      `%23WorldCupOfTrainOperators ` + //? has #WorldCupOfTrainOperators
+      `%23WorldCupOfTubeLines ` + //? has #WorldCupOfTrainOperators
       `-is:retweet ` + //? Is not a retweet
       `-is:quote` + //? Is not a quote tweet
       `&max_results=25` + //? Max 25 results
@@ -66,22 +67,19 @@ async function GetTweetIDs() {
   )
 
   const json = await data.json()
-  // console.log(JSON.stringify(json, null, 2));
 
   if (!json.data) {
-    Log('No tweets found.', Log.SEVERITY.WARNING)
+    Log('No tweets found.', SEVERITY.WARNING)
     return null
   }
 
-  Log('Filtering...', Log.SEVERITY.DEBUG)
+  Log('Filtering...', SEVERITY.DEBUG)
 
-  const pollTweets = json.data.filter(tweet => tweet.attachments && tweet.attachments.poll_ids && tweet.attachments.poll_ids[0])
+  const pollTweets: any[] = json.data.filter(tweet => tweet.attachments && tweet.attachments.poll_ids && tweet.attachments.poll_ids[0])
 
-  const ids = pollTweets.reduce((prev, curr) => [...prev, curr.id], [])
+  const ids = pollTweets.reduce((prev, curr) => [...prev, curr.id], [] as string[])
 
-  // Log(JSON.stringify(ids));
-
-  Log(`Identified ${ids.length} possible game tweets!`, Log.SEVERITY.INFO)
+  Log(`Identified ${ids.length} possible game tweets!`, SEVERITY.INFO)
 
   return ids
 }
@@ -89,7 +87,7 @@ async function GetTweetIDs() {
 async function UpdatePollData() {
   const knownTweets = await GetCupJson()
 
-  const firstToLastKeysOrder = ['knockout', 'groupStages', 'quarterFinal', 'semiFinal', 'runnerUp', 'final']
+  const firstToLastKeysOrder = ['groupStages', 'quarterFinal', 'semiFinal', 'runnerUp', 'final']
 
   const newKnownTweets = { ...knownTweets }
   const justIds = []
@@ -97,13 +95,13 @@ async function UpdatePollData() {
   const newTweetIds = await GetTweetIDs()
 
   if (!newTweetIds) {
-    Log('No new tweet IDs found', Log.SEVERITY.DEBUG)
+    Log('No new tweet IDs found', SEVERITY.DEBUG)
   }
 
   let guessedGameTweetsCounter = 0
 
   // iterate through tweet IDs from old to new
-  Log('Iterating through tweet Ids', Log.SEVERITY.DEBUG)
+  Log('Iterating through tweet Ids', SEVERITY.DEBUG)
   newTweetIds.reverse().forEach(id => {
     firstToLastKeysOrder.some(stage => {
       return Object.keys(newKnownTweets[stage]).some(k => {
@@ -147,8 +145,8 @@ async function UpdatePollData() {
     finalIds.shift()
   }
 
-  Log(`${guessedGameTweetsCounter} IDs were not known to be correct`, guessedGameTweetsCounter > 0 ? Log.SEVERITY.WARNING : Log.SEVERITY.INFO)
-  Log(`Fetching data for ${finalIds.length} tweets...`, Log.SEVERITY.INFO)
+  Log(`${guessedGameTweetsCounter} IDs were not known to be correct`, guessedGameTweetsCounter > 0 ? SEVERITY.WARNING : SEVERITY.INFO)
+  Log(`Fetching data for ${finalIds.length} tweets...`, SEVERITY.INFO)
 
   await fs.writeFile('cup.json', JSON.stringify(newKnownTweets, null, 2))
 
@@ -160,7 +158,6 @@ async function UpdatePollData() {
   let singlePollArray = CreateSinglePollArrayFromTweetData(data)
 
   let fullDataStructure = {
-    knockout: {},
     groupStages: {},
     quarterFinal: {},
     semiFinal: {},
@@ -172,7 +169,6 @@ async function UpdatePollData() {
   const lastData = await GetDataJson()
 
   const finaliseDataStructure = stage => k => {
-    /** @type {SinglePoll} */
     const game = cupData[stage][k]
 
     if (!game.tweetId) {
@@ -188,7 +184,7 @@ async function UpdatePollData() {
       let thisPoll = singlePollArray.find(p => p.twitterInfo.tweetId === game.tweetId)
 
       /** @type {SinglePoll} */
-      const lastDataGame = lastData[stage][k]
+      const lastDataGame: SinglePoll = lastData[stage][k]
 
       if (!thisPoll) {
         fullDataStructure[stage][k] = lastDataGame
@@ -196,50 +192,32 @@ async function UpdatePollData() {
       }
 
       if (thisPoll.votingStatus === 'IN_PROGRESS') {
-        Log(`Handling vote history of in-progress poll... (${stage}.${k})`, Log.SEVERITY.DEBUG)
+        Log(`Handling vote history of in-progress poll... (${stage}.${k})`, SEVERITY.DEBUG)
 
         if (lastDataGame.votesInfo[0].votes !== thisPoll.votesInfo[0].votes || lastDataGame.votesInfo[1].votes !== thisPoll.votesInfo[1].votes) {
-          Log(`Vote count has changed: updating history...`, Log.SEVERITY.DEBUG)
+          Log(`Vote count has changed: updating history...`, SEVERITY.DEBUG)
 
           // Updates have been made to the votes on the API, so we should add an item to the history
-          lastDataGame.votesInfo.forEach(
-            /**
-             * @param {VotesInfo} votes
-             * @param {0|1} i
-             */
-            (votes, i) => {
-              if (Array.isArray(votes.votingHistory)) {
-                Log('Using spread operator to update...', Log.SEVERITY.DEBUG)
-                thisPoll.votesInfo[i].votingHistory = [...votes.votingHistory, { timestamp: now, votes: thisPoll.votesInfo[i].votes }]
-              } else {
-                Log('Updating position ' + i, Log.SEVERITY.DEBUG)
-                thisPoll.votesInfo[i].votingHistory = [{ timestamp: now, votes: thisPoll.votesInfo[i].votes }]
-              }
+          lastDataGame.votesInfo.forEach((votes, i) => {
+            if (Array.isArray(votes.votingHistory)) {
+              Log('Using spread operator to update...', SEVERITY.DEBUG)
+              thisPoll.votesInfo[i].votingHistory = [...votes.votingHistory, { timestamp: now, votes: thisPoll.votesInfo[i].votes }]
+            } else {
+              Log('Updating position ' + i, SEVERITY.DEBUG)
+              thisPoll.votesInfo[i].votingHistory = [{ timestamp: now, votes: thisPoll.votesInfo[i].votes }]
             }
-          )
+          })
         } else {
-          Log(`Vote count has NOT changed.`, Log.SEVERITY.DEBUG)
+          Log(`Vote count has NOT changed.`, SEVERITY.DEBUG)
 
-          lastDataGame.votesInfo.forEach(
-            /**
-             * @param {VotesInfo} votes
-             * @param {0|1} i
-             */
-            (votes, i) => {
-              thisPoll.votesInfo[i].votingHistory = votes.votingHistory
-            }
-          )
+          lastDataGame.votesInfo.forEach((votes, i) => {
+            thisPoll.votesInfo[i].votingHistory = votes.votingHistory
+          })
         }
       } else {
-        lastDataGame.votesInfo.forEach(
-          /**
-           * @param {VotesInfo} votes
-           * @param {0|1} i
-           */
-          (votes, i) => {
-            thisPoll.votesInfo[i].votingHistory = votes.votingHistory
-          }
-        )
+        lastDataGame.votesInfo.forEach((votes, i) => {
+          thisPoll.votesInfo[i].votingHistory = votes.votingHistory
+        })
       }
 
       fullDataStructure[stage][k] = thisPoll
@@ -248,32 +226,22 @@ async function UpdatePollData() {
 
   Log('Finalising data structure')
 
-  Log('Finalising knockout', Log.SEVERITY.DEBUG)
-  Object.keys(cupData.knockout).forEach(finaliseDataStructure('knockout'))
-  Log('Finalising groupStages', Log.SEVERITY.DEBUG)
+  Log('Finalising groupStages', SEVERITY.DEBUG)
   Object.keys(cupData.groupStages).forEach(finaliseDataStructure('groupStages'))
-  Log('Finalising quarterFinal', Log.SEVERITY.DEBUG)
+  Log('Finalising quarterFinal', SEVERITY.DEBUG)
   Object.keys(cupData.quarterFinal).forEach(finaliseDataStructure('quarterFinal'))
-  Log('Finalising semiFinal', Log.SEVERITY.DEBUG)
+  Log('Finalising semiFinal', SEVERITY.DEBUG)
   Object.keys(cupData.semiFinal).forEach(finaliseDataStructure('semiFinal'))
-  Log('Finalising runnerUp', Log.SEVERITY.DEBUG)
+  Log('Finalising runnerUp', SEVERITY.DEBUG)
   Object.keys(cupData.runnerUp).forEach(finaliseDataStructure('runnerUp'))
-  Log('Finalising final', Log.SEVERITY.DEBUG)
+  Log('Finalising final', SEVERITY.DEBUG)
   Object.keys(cupData.final).forEach(finaliseDataStructure('final'))
 
-  // console.log(JSON.stringify(fullDataStructure, null, 2))
-
-  // update latest copy of data
-  // historicalData.latest_all = allData
-  // Log(JSON.stringify(historicalData.latest_all));
-
-  // Log(JSON.stringify(historicalData));
-
-  Log('Writing data.json to disk', Log.SEVERITY.DEBUG)
+  Log('Writing data.json to disk', SEVERITY.DEBUG)
   await fs.writeFile('./data/data.json', JSON.stringify(fullDataStructure, null, 2))
-  Log('Writing data.min.json to disk', Log.SEVERITY.DEBUG)
+  Log('Writing data.min.json to disk', SEVERITY.DEBUG)
   await fs.writeFile('./data/data.min.json', JSON.stringify(fullDataStructure))
-  Log('All data writen. Waiting for next check...', Log.SEVERITY.DEBUG)
+  Log('All data writen. Waiting for next check...', SEVERITY.DEBUG)
 }
 
 /**
@@ -281,7 +249,10 @@ async function UpdatePollData() {
  * @param  {...string} tweetIds
  * @returns {Promise<{tweets:Array.<{attachments:{poll_ids:string[]},id:string,text:string}>,polls:Array.<{id:string,options:Array.<{position:number,label:string,votes:number}>}>}}>}
  */
-async function GetDataFromTwitterApi(...tweetIds) {
+async function GetDataFromTwitterApi(...tweetIds: string[]): Promise<{
+  tweets: Array<{ attachments: { poll_ids: string[] }; id: string; text: string }>
+  polls: Array<{ id: string; options: Array<{ position: number; label: string; votes: number }> }>
+}> {
   const tweet = await (
     await fetch(
       `https://api.twitter.com/2/tweets?ids=${tweetIds.join(',')}` +
@@ -293,50 +264,50 @@ async function GetDataFromTwitterApi(...tweetIds) {
       }
     )
   ).json()
-  Log('Received data from Twitter API', Log.SEVERITY.DEBUG)
+  Log('Received data from Twitter API', SEVERITY.DEBUG)
 
   // console.log(JSON.stringify(tweet, null, 2))
 
   // console.log(tweet)
 
   return {
-    tweets: tweet.data,
-    polls: tweet.includes.polls,
+    tweets: tweet?.data || [],
+    polls: tweet?.includes?.polls || [],
   }
 }
 
 app.get(`/v1/all_polls`, async (req, res) => {
   const data = await GetDataJson()
 
-  return SendResponse.JSON(res, data)
+  return _JSON(res, data)
 })
 
 app.get(`/v1/game_notes`, async (req, res) => {
   const data = await GetGameNotes()
 
-  return SendResponse.JSON(res, data)
+  return _JSON(res, data)
 })
 
 app.get(`/favicon.ico`, async (req, res) => {
-  return SendResponse.File(res, 'icon.ico')
+  return File(res, 'icon.ico')
 })
 
-Log(`Starting API listener...`, Log.SEVERITY.DEBUG)
+Log(`Starting API listener...`, SEVERITY.DEBUG)
 
 if (!TOKEN) {
-  Log(`No API token specified!`, Log.SEVERITY.ERROR)
+  Log(`No API token specified!`, SEVERITY.ERROR)
   exit(1)
 }
 
 let listener = app.listen(port || 2678, () => {
-  Log(`Listening at localhost:${listener.address().port}`, Log.SEVERITY.INFO)
+  Log(`Listening at ${listener.address()}`, SEVERITY.INFO)
 
-//  Log('Fetching data from the Twitter API')
-//  UpdatePollData()
+  Log('Fetching data from the Twitter API')
+  UpdatePollData()
 
   // Update every 2 mins
-//  setInterval(() => {
-//    Log('Fetching latest data from the Twitter API')
-//    UpdatePollData()
-//  }, 1 * 60 * 1000)
+  setInterval(() => {
+    Log('Fetching latest data from the Twitter API')
+    UpdatePollData()
+  }, 1 * 60 * 1000)
 })

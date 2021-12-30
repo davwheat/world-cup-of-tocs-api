@@ -1,22 +1,16 @@
-const { GetTocCodeFromName } = require('../TocData')
-const SinglePoll = require('./SinglePoll')
-const TwitterInfo = require('./TwitterInfo')
-const VotesInfo = require('./VotesInfo')
-const flat_cupData = require('../helpers/FlattenCupData')
+import { GetTocCodeFromName } from '../TocData'
+import SinglePoll from './SinglePoll'
+import TwitterInfo from './TwitterInfo'
+import VotesInfo from './VotesInfo'
+import CupData from '../helpers/FlattenCupData'
 
 /**
  * Creates an array of `SinglePoll` from a Twitter API response.
  *
  * This **does not** including voting history, or upcoming polls.
- *
- * @param { { data: Array, includes: { polls: Array }} } tweetData
- *
- * @returns {SinglePoll[]}
  **/
-module.exports = function CreateSinglePollArrayFromTweetData(tweetData) {
+export default function CreateSinglePollArrayFromTweetData(tweetData: { data: any[]; includes: { polls: any[] } }): SinglePoll[] {
   let array = []
-
-  // console.log(tweetData)
 
   const allTweets = tweetData.tweets
   const allPolls = tweetData.polls
@@ -35,8 +29,6 @@ module.exports = function CreateSinglePollArrayFromTweetData(tweetData) {
 
     const team1Code = GetTocCodeFromName(poll.options[0].label)
     const team2Code = GetTocCodeFromName(poll.options[1].label)
-    // const team1Code = poll.options[0].label
-    // const team2Code = poll.options[1].label
 
     const votesInfoArray = [
       new VotesInfo({
@@ -49,7 +41,7 @@ module.exports = function CreateSinglePollArrayFromTweetData(tweetData) {
       }),
     ]
 
-    const cd = flat_cupData.find(d => d.tweetId === twitterInfo.tweetId)
+    const cd = CupData.find(d => d.tweetId === twitterInfo.tweetId)
 
     const singlePoll = new SinglePoll({
       scheduledStartDay: cd ? new Date(`${cd.startDate}Z`).getTime() : poll.voting_status === 'UPCOMING' ? null : 0,

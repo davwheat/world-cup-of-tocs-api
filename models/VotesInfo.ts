@@ -1,4 +1,4 @@
-module.exports = class VotesInfo {
+export default class VotesInfo {
   /**
    * A valid TOC reporting mark.
    *
@@ -6,7 +6,7 @@ module.exports = class VotesInfo {
    *
    * @memberof VotesInfo
    */
-  tocReportingMark
+  tocReportingMark: string
 
   /**
    * Number of votes for this TOC. `null` if poll hasn't started.
@@ -15,7 +15,7 @@ module.exports = class VotesInfo {
    *
    * @memberof VotesInfo
    */
-  votes
+  votes: number | null
 
   /**
    * Vote history over time. Usually taken every few mins, but depends on Twitter API's update rate. `null` if poll hasn't started.
@@ -24,7 +24,7 @@ module.exports = class VotesInfo {
    *
    * @memberof VotesInfo
    */
-  votingHistory
+  votingHistory: { timestamp: number; votes: number }[] | null
 
   /**
    * Creates an instance of VotesInfo.
@@ -32,9 +32,8 @@ module.exports = class VotesInfo {
    * @param {string} data.tocReportingMark                                            A valid TOC reporting mark.
    * @param {string} [data.votes=null]                                                Number of votes for this TOC. `null` if poll hasn't started.
    * @param {{ timestamp: number, votes: number }[] | null} [data.votingHistory=null] Vote history over time. Usually taken every few mins, but depends on Twitter API's update rate. `null` if poll hasn't started.
-   * @memberof VotesInfo
    */
-  constructor(data) {
+  constructor(data: { tocReportingMark: string; votes?: number | null; votingHistory?: { timestamp: number; votes: number }[] | null }) {
     const { tocReportingMark, votes, votingHistory } = data
 
     this.tocReportingMark = tocReportingMark

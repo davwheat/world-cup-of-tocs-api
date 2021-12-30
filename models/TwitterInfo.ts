@@ -1,56 +1,37 @@
 /**
  * Holds info about a tweet. Used within `SinglePoll`.
- *
- * @export
- * @class TwitterInfo
  */
-module.exports = class TwitterInfo {
+export default class TwitterInfo {
   /**
    * ID of the poll's tweet
-   *
-   * @type {string}
-   *
-   * @memberof TwitterInfo
    */
-  tweetId
+  tweetId: string
 
   /**
    * When the poll opened for votes (UTC timestamp).
-   *
-   * @type {number}
-   *
-   * @memberof TwitterInfo
    */
-  startTime
+  startTime: number
 
   /**
    * When the poll closed for new votes (UTC timestamp).
-   *
-   * @type {number}
-   *
-   * @memberof TwitterInfo
    */
-  endTime
+  endTime: number
 
   /**
    * Overall length of the poll in minutes.
-   *
-   * @type {number}
-   *
-   * @memberof TwitterInfo
    */
-  durationMinutes
+  durationMinutes: number
 
   /**
    * Creates an instance of TwitterInfo.
+   *
    * @param {object} data
    * @param {string} data.tweetId         ID of the poll's tweet
    * @param {string} data.startTime       When the poll began accepting votes
    * @param {string} data.endTime         When the poll stopped/will stop accepting votes
    * @param {string} data.durationMinutes Poll duration in minutes
-   * @memberof TwitterInfo
    */
-  constructor(data) {
+  constructor(data: { tweetId: string; startTime: string; endTime: string; durationMinutes: string }) {
     const { tweetId, startTime, endTime, durationMinutes } = data
 
     this.tweetId = tweetId

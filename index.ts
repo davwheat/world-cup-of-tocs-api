@@ -300,7 +300,7 @@ if (!TOKEN) {
 }
 
 let listener = app.listen(port || 2678, () => {
-  Log(`Listening at ${listener.address()}`, SEVERITY.INFO)
+  Log(`Listening on port ${listener.address().port}`, SEVERITY.INFO)
 
   Log('Fetching data from the Twitter API')
   UpdatePollData()

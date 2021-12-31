@@ -1,36 +1,242 @@
 {
   "groupStages": {
     "0": {
-      "scheduledStartDay": 1640908800000,
-      "votingStatus": "UPCOMING",
-      "twitterInfo": null,
+      "scheduledStartDay": 0,
+      "votingStatus": "IN_PROGRESS",
+      "twitterInfo": {
+        "tweetId": "1476840183429582891",
+        "startTime": 1640941112000,
+        "endTime": 1640944772000,
+        "durationMinutes": 61
+      },
       "votesInfo": [
         {
           "tocReportingMark": "ju",
-          "votes": null,
-          "votingHistory": null
+          "votes": 924,
+          "votingHistory": [
+            {
+              "timestamp": 1640941171990,
+              "votes": 2
+            },
+            {
+              "timestamp": 1640941231988,
+              "votes": 109
+            },
+            {
+              "timestamp": 1640941351989,
+              "votes": 181
+            },
+            {
+              "timestamp": 1640941411998,
+              "votes": 187
+            },
+            {
+              "timestamp": 1640941471980,
+              "votes": 310
+            },
+            {
+              "timestamp": 1640941532001,
+              "votes": 359
+            },
+            {
+              "timestamp": 1640941592001,
+              "votes": 413
+            },
+            {
+              "timestamp": 1640941652020,
+              "votes": 464
+            },
+            {
+              "timestamp": 1640941712011,
+              "votes": 525
+            },
+            {
+              "timestamp": 1640941771994,
+              "votes": 570
+            },
+            {
+              "timestamp": 1640942372128,
+              "votes": 924
+            }
+          ]
         },
         {
           "tocReportingMark": "tr",
-          "votes": null,
-          "votingHistory": null
+          "votes": 281,
+          "votingHistory": [
+            {
+              "timestamp": 1640941171990,
+              "votes": 1
+            },
+            {
+              "timestamp": 1640941231988,
+              "votes": 51
+            },
+            {
+              "timestamp": 1640941351989,
+              "votes": 70
+            },
+            {
+              "timestamp": 1640941411998,
+              "votes": 74
+            },
+            {
+              "timestamp": 1640941471980,
+              "votes": 112
+            },
+            {
+              "timestamp": 1640941532001,
+              "votes": 132
+            },
+            {
+              "timestamp": 1640941592001,
+              "votes": 140
+            },
+            {
+              "timestamp": 1640941652020,
+              "votes": 150
+            },
+            {
+              "timestamp": 1640941712011,
+              "votes": 171
+            },
+            {
+              "timestamp": 1640941771994,
+              "votes": 186
+            },
+            {
+              "timestamp": 1640942372128,
+              "votes": 281
+            }
+          ]
         }
       ]
     },
     "1": {
-      "scheduledStartDay": 1640908800000,
-      "votingStatus": "UPCOMING",
-      "twitterInfo": null,
+      "scheduledStartDay": 0,
+      "votingStatus": "IN_PROGRESS",
+      "twitterInfo": {
+        "tweetId": "1476840330632876055",
+        "startTime": 1640941147000,
+        "endTime": 1640944747000,
+        "durationMinutes": 60
+      },
       "votesInfo": [
         {
           "tocReportingMark": "ba",
-          "votes": null,
-          "votingHistory": null
+          "votes": 520,
+          "votingHistory": [
+            {
+              "timestamp": 1640941171990,
+              "votes": 18
+            },
+            {
+              "timestamp": 1640941231988,
+              "votes": 63
+            },
+            {
+              "timestamp": 1640941351989,
+              "votes": 132
+            },
+            {
+              "timestamp": 1640941411998,
+              "votes": 179
+            },
+            {
+              "timestamp": 1640941471980,
+              "votes": 196
+            },
+            {
+              "timestamp": 1640941532001,
+              "votes": 231
+            },
+            {
+              "timestamp": 1640941592001,
+              "votes": 245
+            },
+            {
+              "timestamp": 1640941652020,
+              "votes": 285
+            },
+            {
+              "timestamp": 1640941712011,
+              "votes": 267
+            },
+            {
+              "timestamp": 1640941771994,
+              "votes": 300
+            },
+            {
+              "timestamp": 1640941832008,
+              "votes": 309
+            },
+            {
+              "timestamp": 1640941892041,
+              "votes": 337
+            },
+            {
+              "timestamp": 1640942432086,
+              "votes": 520
+            }
+          ]
         },
         {
           "tocReportingMark": "dl",
-          "votes": null,
-          "votingHistory": null
+          "votes": 759,
+          "votingHistory": [
+            {
+              "timestamp": 1640941171990,
+              "votes": 22
+            },
+            {
+              "timestamp": 1640941231988,
+              "votes": 70
+            },
+            {
+              "timestamp": 1640941351989,
+              "votes": 150
+            },
+            {
+              "timestamp": 1640941411998,
+              "votes": 234
+            },
+            {
+              "timestamp": 1640941471980,
+              "votes": 255
+            },
+            {
+              "timestamp": 1640941532001,
+              "votes": 306
+            },
+            {
+              "timestamp": 1640941592001,
+              "votes": 322
+            },
+            {
+              "timestamp": 1640941652020,
+              "votes": 400
+            },
+            {
+              "timestamp": 1640941712011,
+              "votes": 374
+            },
+            {
+              "timestamp": 1640941771994,
+              "votes": 421
+            },
+            {
+              "timestamp": 1640941832008,
+              "votes": 442
+            },
+            {
+              "timestamp": 1640941892041,
+              "votes": 501
+            },
+            {
+              "timestamp": 1640942432086,
+              "votes": 759
+            }
+          ]
         }
       ]
     },

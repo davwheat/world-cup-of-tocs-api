@@ -15,6 +15,15 @@
     }
   ],
   "license": "MIT",
+  "nodemonConfig": {
+    "ignore": [
+      "cup.json",
+      ".git/**",
+      "**/*.log",
+      "data/**",
+      "**/node_modules/**"
+    ]
+  },
   "scripts": {
     "start": "ts-node --transpile-only index.ts",
     "watch": "nodemon --transpile-only index.ts",

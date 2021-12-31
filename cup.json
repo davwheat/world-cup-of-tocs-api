@@ -77,14 +77,14 @@
   },
   "semiFinal": {
     "0": {
-      "team1": "vi",
-      "team2": "no",
+      "team1": "ju",
+      "team2": "pi",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "1": {
-      "team1": null,
-      "team2": null,
+      "team1": "vi",
+      "team2": "no",
       "startDate": "2021-12-31",
       "tweetId": null
     }

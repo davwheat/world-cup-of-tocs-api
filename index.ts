@@ -309,5 +309,5 @@ let listener = app.listen(port || 2678, () => {
   setInterval(() => {
     Log('Fetching latest data from the Twitter API')
     UpdatePollData()
-  }, 1 * 60 * 1000)
+  }, 1 * 15 * 1000)
 })

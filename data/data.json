@@ -353,7 +353,7 @@
       ]
     },
     "2": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1640908800000,
       "votingStatus": "DONE",
       "twitterInfo": {
         "tweetId": "1476855311919198209",
@@ -705,7 +705,7 @@
       ]
     },
     "3": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1640908800000,
       "votingStatus": "DONE",
       "twitterInfo": {
         "tweetId": "1476855598000001024",
@@ -1065,7 +1065,7 @@
       ]
     },
     "4": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1640908800000,
       "votingStatus": "DONE",
       "twitterInfo": {
         "tweetId": "1476870493173075972",
@@ -1457,7 +1457,7 @@
       ]
     },
     "5": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1640908800000,
       "votingStatus": "DONE",
       "twitterInfo": {
         "tweetId": "1476870783309864961",
@@ -1849,7 +1849,7 @@
       ]
     },
     "6": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1640908800000,
       "votingStatus": "DONE",
       "twitterInfo": {
         "tweetId": "1476886245234126848",
@@ -2241,7 +2241,7 @@
       ]
     },
     "7": {
-      "scheduledStartDay": 0,
+      "scheduledStartDay": 1640908800000,
       "votingStatus": "DONE",
       "twitterInfo": {
         "tweetId": "1476886404131078161",
@@ -2650,8 +2650,16 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        null,
-        null
+        {
+          "tocReportingMark": "vi",
+          "votes": null,
+          "votingHistory": null
+        },
+        {
+          "tocReportingMark": "di",
+          "votes": null,
+          "votingHistory": null
+        }
       ]
     }
   },

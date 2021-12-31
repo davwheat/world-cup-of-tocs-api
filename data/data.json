@@ -1850,7 +1850,7 @@
     },
     "6": {
       "scheduledStartDay": 0,
-      "votingStatus": "IN_PROGRESS",
+      "votingStatus": "DONE",
       "twitterInfo": {
         "tweetId": "1476886245234126848",
         "startTime": 1640952094000,
@@ -1860,7 +1860,7 @@
       "votesInfo": [
         {
           "tocReportingMark": "ce",
-          "votes": 783,
+          "votes": 845,
           "votingHistory": [
             {
               "timestamp": 1640952110034,
@@ -2041,12 +2041,16 @@
             {
               "timestamp": 1640955215577,
               "votes": 783
+            },
+            {
+              "timestamp": 1640955755680,
+              "votes": 783
             }
           ]
         },
         {
           "tocReportingMark": "vi",
-          "votes": 1569,
+          "votes": 1699,
           "votingHistory": [
             {
               "timestamp": 1640952110034,
@@ -2227,6 +2231,10 @@
             {
               "timestamp": 1640955215577,
               "votes": 1569
+            },
+            {
+              "timestamp": 1640955755680,
+              "votes": 1569
             }
           ]
         }
@@ -2234,7 +2242,7 @@
     },
     "7": {
       "scheduledStartDay": 0,
-      "votingStatus": "IN_PROGRESS",
+      "votingStatus": "DONE",
       "twitterInfo": {
         "tweetId": "1476886404131078161",
         "startTime": 1640952132000,
@@ -2244,7 +2252,7 @@
       "votesInfo": [
         {
           "tocReportingMark": "di",
-          "votes": 1194,
+          "votes": 1291,
           "votingHistory": [
             {
               "timestamp": 1640952155111,
@@ -2414,7 +2422,7 @@
         },
         {
           "tocReportingMark": "ov",
-          "votes": 1072,
+          "votes": 1157,
           "votingHistory": [
             {
               "timestamp": 1640952155111,

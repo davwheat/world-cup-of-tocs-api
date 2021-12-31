@@ -51,20 +51,20 @@
   },
   "quarterFinal": {
     "0": {
-      "team1": null,
-      "team2": null,
+      "team1": "ju",
+      "team2": "dl",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "1": {
-      "team1": null,
-      "team2": null,
+      "team1": "ci",
+      "team2": "pi",
       "startDate": "2021-12-31",
       "tweetId": null
     },
     "2": {
-      "team1": null,
-      "team2": null,
+      "team1": "tl",
+      "team2": "no",
       "startDate": "2021-12-31",
       "tweetId": null
     },

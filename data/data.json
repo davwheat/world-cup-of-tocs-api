@@ -1860,7 +1860,7 @@
       "votesInfo": [
         {
           "tocReportingMark": "ce",
-          "votes": 286,
+          "votes": 344,
           "votingHistory": [
             {
               "timestamp": 1640952110034,
@@ -1957,12 +1957,48 @@
             {
               "timestamp": 1640952590145,
               "votes": 286
+            },
+            {
+              "timestamp": 1640952605220,
+              "votes": 277
+            },
+            {
+              "timestamp": 1640952620191,
+              "votes": 297
+            },
+            {
+              "timestamp": 1640952650208,
+              "votes": 318
+            },
+            {
+              "timestamp": 1640952665174,
+              "votes": 297
+            },
+            {
+              "timestamp": 1640952680205,
+              "votes": 318
+            },
+            {
+              "timestamp": 1640952710216,
+              "votes": 297
+            },
+            {
+              "timestamp": 1640952725233,
+              "votes": 325
+            },
+            {
+              "timestamp": 1640952740178,
+              "votes": 329
+            },
+            {
+              "timestamp": 1640952755196,
+              "votes": 344
             }
           ]
         },
         {
           "tocReportingMark": "vi",
-          "votes": 574,
+          "votes": 715,
           "votingHistory": [
             {
               "timestamp": 1640952110034,
@@ -2059,6 +2095,42 @@
             {
               "timestamp": 1640952590145,
               "votes": 574
+            },
+            {
+              "timestamp": 1640952605220,
+              "votes": 544
+            },
+            {
+              "timestamp": 1640952620191,
+              "votes": 604
+            },
+            {
+              "timestamp": 1640952650208,
+              "votes": 649
+            },
+            {
+              "timestamp": 1640952665174,
+              "votes": 604
+            },
+            {
+              "timestamp": 1640952680205,
+              "votes": 649
+            },
+            {
+              "timestamp": 1640952710216,
+              "votes": 604
+            },
+            {
+              "timestamp": 1640952725233,
+              "votes": 668
+            },
+            {
+              "timestamp": 1640952740178,
+              "votes": 692
+            },
+            {
+              "timestamp": 1640952755196,
+              "votes": 715
             }
           ]
         }
@@ -2076,7 +2148,7 @@
       "votesInfo": [
         {
           "tocReportingMark": "di",
-          "votes": 436,
+          "votes": 568,
           "votingHistory": [
             {
               "timestamp": 1640952155111,
@@ -2157,12 +2229,56 @@
             {
               "timestamp": 1640952575171,
               "votes": 436
+            },
+            {
+              "timestamp": 1640952635191,
+              "votes": 463
+            },
+            {
+              "timestamp": 1640952650208,
+              "votes": 496
+            },
+            {
+              "timestamp": 1640952680205,
+              "votes": 480
+            },
+            {
+              "timestamp": 1640952695193,
+              "votes": 519
+            },
+            {
+              "timestamp": 1640952725233,
+              "votes": 534
+            },
+            {
+              "timestamp": 1640952740178,
+              "votes": 519
+            },
+            {
+              "timestamp": 1640952755196,
+              "votes": 551
+            },
+            {
+              "timestamp": 1640952770196,
+              "votes": 519
+            },
+            {
+              "timestamp": 1640952785212,
+              "votes": 568
+            },
+            {
+              "timestamp": 1640952800208,
+              "votes": 551
+            },
+            {
+              "timestamp": 1640952815195,
+              "votes": 568
             }
           ]
         },
         {
           "tocReportingMark": "ov",
-          "votes": 370,
+          "votes": 463,
           "votingHistory": [
             {
               "timestamp": 1640952155111,
@@ -2243,6 +2359,50 @@
             {
               "timestamp": 1640952575171,
               "votes": 370
+            },
+            {
+              "timestamp": 1640952635191,
+              "votes": 389
+            },
+            {
+              "timestamp": 1640952650208,
+              "votes": 420
+            },
+            {
+              "timestamp": 1640952680205,
+              "votes": 407
+            },
+            {
+              "timestamp": 1640952695193,
+              "votes": 426
+            },
+            {
+              "timestamp": 1640952725233,
+              "votes": 436
+            },
+            {
+              "timestamp": 1640952740178,
+              "votes": 426
+            },
+            {
+              "timestamp": 1640952755196,
+              "votes": 451
+            },
+            {
+              "timestamp": 1640952770196,
+              "votes": 426
+            },
+            {
+              "timestamp": 1640952785212,
+              "votes": 463
+            },
+            {
+              "timestamp": 1640952800208,
+              "votes": 451
+            },
+            {
+              "timestamp": 1640952815195,
+              "votes": 463
             }
           ]
         }
@@ -2255,8 +2415,16 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        null,
-        null
+        {
+          "tocReportingMark": "ju",
+          "votes": null,
+          "votingHistory": null
+        },
+        {
+          "tocReportingMark": "dl",
+          "votes": null,
+          "votingHistory": null
+        }
       ]
     },
     "1": {
@@ -2264,8 +2432,16 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        null,
-        null
+        {
+          "tocReportingMark": "ci",
+          "votes": null,
+          "votingHistory": null
+        },
+        {
+          "tocReportingMark": "pi",
+          "votes": null,
+          "votingHistory": null
+        }
       ]
     },
     "2": {
@@ -2273,8 +2449,16 @@
       "votingStatus": "UPCOMING",
       "twitterInfo": null,
       "votesInfo": [
-        null,
-        null
+        {
+          "tocReportingMark": "tl",
+          "votes": null,
+          "votingHistory": null
+        },
+        {
+          "tocReportingMark": "no",
+          "votes": null,
+          "votingHistory": null
+        }
       ]
     },
     "3": {

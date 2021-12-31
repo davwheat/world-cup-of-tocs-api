@@ -69,8 +69,8 @@
       "tweetId": null
     },
     "3": {
-      "team1": null,
-      "team2": null,
+      "team1": "vi",
+      "team2": "di",
       "startDate": "2021-12-31",
       "tweetId": null
     }

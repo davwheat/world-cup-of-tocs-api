@@ -302,6 +302,7 @@ if (!TOKEN) {
 let listener = app.listen(port || 2678, () => {
   Log(`Listening on port ${listener.address().port}`, SEVERITY.INFO)
 
+/*
   Log('Fetching data from the Twitter API')
   UpdatePollData()
 
@@ -310,4 +311,5 @@ let listener = app.listen(port || 2678, () => {
     Log('Fetching latest data from the Twitter API')
     UpdatePollData()
   }, 1 * 15 * 1000)
+*/
 })
